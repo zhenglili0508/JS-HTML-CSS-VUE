@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        window.onload = function(){
+            var u1 =  document.getElementById("u1")
+
+            var btn1 =  document.getElementById("btn1")
+            btn1.onclick = function(){
+               // 创建一个 li
+               var li =  document.createElement("li")
+               li.innerHTML = "<a href='jsedtfghg' class='link'>new超链接 </a>"
+            // 将li加入到ul中  
+                u1.appendChild(li)
+            }
+            
+            //为每一个超链接都绑定一个单击响应函数
+            //这里我们为每一个超链接都绑定了一个单击响应函数，这种操作比较麻烦，
+            //而且这些操作只能为已有的超链接设置事件，而新添加的超链接必须重新绑定
+
+            var allA = document.getElementsByTagName("a")
+            // for(var i=0;i<allA.length;i++){
+            //     allA[i].onclick= function(){
+            //         alert("我是A的单击响应函数 ")
+            //     }
+            // }
+            //我们希望，只绑定一次事件，即可应用到多个元素上，即使元素是后添加的 
+            //我们尝试 绑定到他的祖先上 
+            
+            //给ul 绑定 点击响应函数 
+                //这就叫做一个事件的委派 
+            u1.onclick = function(event){
+                //如果触发的事件对象是我们期待的元素  就执行
+                //找到触发该事件的  对象 
+                event = event || window.event
+                //target     event中的target表示的触发事件的对象
+                //alert(event.target);
+                if(event.target.className=="link"){
+                    alert("我是 ul 的单击响应函数，反应到li的a里")
+                }
+                
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <button id="btn1">添加超链接</button>
+    <ul id="u1">
+        <li><a href="jsedtfghg" class="link">超链接一</a></li>
+        <li><a href="jsedtfghg" class="link">超链接二</a></li>
+        <li><a href="jsedtfghg" class="link">超链接三</a></li>
+
+    </ul>
+</body>
+</html>

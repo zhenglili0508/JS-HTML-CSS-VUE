@@ -1,0 +1,66 @@
+//开头的注释不会被编译到 CSS中 
+/* 开头的注释是可以编译到CSS中的*/
+// 变量的定义 ！！
+@width:300px;
+div{
+    width: @width;
+}
+// 可以把属性名和选择器定义为变量 
+
+@selector:#wrap;
+@m:margin;
+*{
+    @{m}: 100 *10px;
+    padding: ~"cacl(100px +100)";
+}
+// 加括号时不会加入到 CSS代码中去    
+//可以在括号内传参！！
+// 可以带参数 
+// 可以带默认值
+   
+.juzhong{
+    position:absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+} 
+
+@import "./stri.less";
+
+.border(@1,@2,@3){
+    border: @arguments;
+}
+
+
+@{selector}{
+        position:absolute;
+        width: 400px;
+        height: 400px;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border: 1px solid;
+    .inner1:extend(.juzhong){
+        width: 200px;
+        height: 200px;
+        background-color: deeppink;
+        
+    }
+    .inner2:extend(.juzhong){
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+
+        .border(1px,solid,black);
+    }
+    .sjx{
+
+        .stri(T,yellow)
+    }
+    
+    
+}

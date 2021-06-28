@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            //点击按钮后弹出一个内容
+            var btn1 = document.getElementById("btn1")
+            // 用以下方法  绑定的两个响应函数 后一个会 覆盖前一个   只会 弹出最后一个 
+            // btn1.onclick = function(){
+            //     alert("asfjhvg")
+            // }
+            // btn1.onclick = function(){
+            //     alert("sdgfhgfvasfdfsdf")
+            // }
+            //addEventListener()  -通过这个方法也可以为元素绑定响应函数
+            // btn1.addEventListener("click",function(){
+            //     alert(1)
+            // },false);
+
+            // btn1.addEventListener("click",function(){
+            //     alert(2)
+            // },false);
+
+            // btn1.addEventListener("click",function(){
+            //     alert(3)
+            // },false);
+                btn1.attachEvent("onclick",function(){
+                    alert(1)
+                })
+
+
+        }
+    </script>
+</head>
+<body>
+    <button id = "btn1">点我一下</button>
+</body>
+</html>

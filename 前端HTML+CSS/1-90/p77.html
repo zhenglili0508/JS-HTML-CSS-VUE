@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            /* background-image: url("img/anniu.jpg"); */
+        }
+        .btn:link{
+            width: 50px;
+            height: 30px;
+            background-color: lawngreen; 
+             /*内联元素转块元素    浮动 和绝对定位也可以  */
+            /* display: block; */
+            position: fixed;
+            background-image: linear-gradient(#63cdee, #079ff7); 
+            background-repeat: no-repeat;
+        }
+        .btn:hover{
+            background-image: linear-gradient(#0bbdf3, #045afa); 
+        }
+        .btn:active{
+            border: 2px solid blue;
+            background-image: linear-gradient(#b3c3ee, #0c60e7); 
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <a class="btn" href="#"></a>
+    </div>
+</body>
+</html>

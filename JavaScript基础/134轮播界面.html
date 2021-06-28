@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 209px;
+            height: 336px;
+            margin: 0 auto;
+            top : 50px;
+            background-color: rgb(255, 147, 121);
+            padding: 10px 0;
+            position:relative ;
+            /* 裁剪溢出 */
+            overflow: hidden;
+        }
+        #imglist{
+            list-style: none;
+            /* width: 836px;  */
+            position: absolute;
+            left: 0px;
+
+        }
+        #imglist li{
+            float: left;
+            /* 设置左右外边距 */
+            margin: 0 10px;
+        }
+        #navDiv{
+            position: absolute;
+            bottom: 15px;
+            /* left :42px; */
+        }
+        #navDiv a{
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: red;
+           float: left;
+           margin: 0 5px;
+           /* 透明 */
+           opacity: 0.5;
+        }
+        #navDiv a:hover{
+            background-color:black;
+        }
+  </style>
+  <script src="/尚硅谷/move.js"></script>
+  <script>
+      window.onload = function(){
+            var imglist = document.getElementById("imglist")
+            var imgarr = document.getElementsByTagName("img")
+            imglist.style.width = 209 *imgarr.length +"px"
+            var navDiv = document.getElementById("navDiv")
+            var  outer =  document.getElementById("outer")
+            navDiv.style.left = (outer.offsetWidth-navDiv.offsetWidth)/2+"px"
+           
+            var index = 0
+            
+            var allA = document.getElementsByTagName("a")
+            allA[index].style.backgroundColor = "black"
+            var timer
+
+            //  点击链接 切换图片 
+            for (var i =0;i<allA.length;i++){
+                allA[i].num = i
+                allA[i].onclick = function(){
+
+                    clearInterval(timer)
+
+                    index = this.num
+                    // imglist.style.left = -209*index+"px"
+
+                    // 修改正选中的A
+                    setA()
+                    move(imglist,"left",-209*index,20,function(){
+                        //动画执行完毕   开启自动切换 
+                        autoChange()
+                    })
+                }
+            }
+            autoChange()
+            function setA(){
+                if(index >= imgarr.length-1){
+                    index = 0
+                    imglist.style.left =0
+                }
+                //   遍历所有的a 并把他们的颜色 设置为红色 
+                for (var i =0;i<allA.length;i++){
+                    allA[i].style.backgroundColor = ""
+                }
+                allA[index].style.backgroundColor = "black"
+              }        
+              
+            function autoChange(){
+                //开启一个定时器  用来去切换图片 
+                timer = setInterval(function(){
+                    //使索引自增 
+                    index++
+                    //判断index的值 
+                    index %= imgarr.length
+                    //执行动画
+                    move(imglist,"left",-209*index,20,function(){
+                        //修改 下方的链接颜色 
+                        setA();
+                        })  
+                },2000)
+              }
+
+      }
+  </script>
+</head>
+<body>
+    <div id = "outer">
+        <ul id ="imglist">
+            <li> <img src="img/1.jpg"></li>
+            <li> <img src="img/2.jpg"></li>
+            <li> <img src="img/3.jpg"></li>
+            <!-- <li> <img src="img/4.jpg"></li> -->
+            <li> <img src="img/5.jpg"></li>
+            <li> <img src="img/5.jpg"></li>
+            <li> <img src="img/1.jpg"></li>
+        </ul>
+        <!-- 创建导航按钮 -->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+</html>

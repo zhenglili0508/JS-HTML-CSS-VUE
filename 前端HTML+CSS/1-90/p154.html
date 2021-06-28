@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html.bady{
+            height: 100%;
+            overflow: hidden;
+        }
+        #test{
+            /* transition: 3s;  */
+            width: 400px;
+            height: 40px;
+            border: 1px solid;
+            overflow: hidden;
+            }
+        #test > .inner{
+            width: 1100px;
+            height: 40px;   
+            background: repeating-linear-gradient(135deg,red 0px ,red 10px,yellow 10px,yellow 20px);
+        }
+        /* #test:hover .inner{
+            margin-left: -300px;
+        } */
+    </style>
+    <script  type="text/javascript">
+        var inner = document.querySelector("#test > .inner");  
+        var flag = 0  
+           setInterval(function(){
+            flag++;
+            inner.style.marginLeft = -flag+"px";
+           }, 30);
+    </script>
+</head>
+<body>
+    <div id="test">
+        <div class="inner"></div>
+    </div>
+</body>
+
+</html>

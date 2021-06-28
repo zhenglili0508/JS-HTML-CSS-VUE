@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test{
+            width: 300px;
+            height:200px;
+            background-color: deeppink;
+            border: dimgrey 1px solid;
+            border-radius: 50%;
+            font: 20px/200px 微软雅黑;
+            position: relative;
+            text-align: center;
+        }
+        .test:before{
+            width: 60px;
+            height: 50px;
+            background-color: pink;
+            content: "";
+            border: dimgrey 1px solid;
+            border-radius: 50%;
+            position: absolute;
+            right: -20px;
+            bottom: -30px;
+        }
+
+        .test:after{
+            width: 30px;
+            height: 20px;
+            content: "";
+            background-color: pink;
+            border: dimgrey 1px solid;
+            position: absolute;
+            border-radius: 50%;
+            right: -50px;
+            bottom: -45px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test">  
+        这是郑丽丽小可爱写的对话框
+    </div>
+</body>
+</html>

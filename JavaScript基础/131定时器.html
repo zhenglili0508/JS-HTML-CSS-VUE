@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       #box1{
+           width: 100px;
+           height: 100px;
+           background-color: lightcoral;
+           position: absolute;
+       } 
+       #box2{
+           width: 100px;
+           height: 100px;
+           background-color: rgb(240, 223, 128);
+           position: absolute;
+           left: 0px;
+           top: 200px;
+       } 
+    </style>
+    <!-- 将核心代码放入到外部的js文件中   引用该文件   -->
+    <script src="/尚硅谷/move.js"></script>   
+     
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1")
+            var box2 = document.getElementById("box2")
+            var btn1 = document.getElementById("btn1")
+            var btn2 = document.getElementById("btn2")
+            var btn3 = document.getElementById("btn3")
+            var btn4 = document.getElementById("btn4")
+            var timer 
+            btn1.onclick = function(){
+                move(box1,"left",800,10)//调用 动画函数
+            }
+
+            btn2.onclick = function(){
+               move(box1,"left",0,10)//调用 动画函数
+            }
+            btn3.onclick = function(){
+               move(box2,"left",800,5)//调用 动画函数
+            }
+            btn4.onclick = function(){
+               //move(box2,"width",800,5)
+               move(box2,"width",800,5,function(){
+                move(box2,"height",300,5,function(){
+                    move(box2,"top",0,5,function(){   
+                        move(box2,"left",300,5,function(){   
+            })   
+            })   
+            }) 
+               })//调用 动画函数
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <button id = "btn1">点击这个按钮，点击之后使得div往右移动</button>
+    <button id = "btn2">点击这个按钮，点击之后使得div往左移动</button>
+    <button id = "btn3">点击这个按钮，点击之后使得box2往右移动</button>
+    <button id = "btn4">测试</button>
+    <br/><br/>
+    <div id = "box1"></div>
+    <div id = "box2"></div>
+</body>
+</html>

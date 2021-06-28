@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            width: 100%;
+            background-color: pink;
+        }
+        div:empty{
+            background-color: deeppink;
+        }
+        .test::after{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            content: " ";
+        }
+    </style>
+</head>
+<body>
+    <div>efd</div>
+    <div>drdggre</div>
+    <div>fdd</div>
+    <div>gfgbgfgf</div>
+    <div class="test">111111</div>
+</body>
+</html>

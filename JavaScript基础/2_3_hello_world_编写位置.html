@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- //  可以将外部js代码引入  -->
+    <script src="script.js"></script>
+    <script>
+        // alert 可以弹出一个警告框 
+        // alert("这是我的第一行JavaScript代码");
+        // 可以向body中输出内容
+        // document.write("可以向body中输出内容")     
+        /*
+        *
+        */
+        // console.log("像控制台输出一个内容")
+
+         //alert("这是我的第一行JavaScript代码");
+        // document.write("可以向body中输出内容");
+        // console.log("像控制台输出一个内容");
+    </script>
+</head>
+
+<body>
+    <!-- 可以将JavaScript代码写入到 标签onclick属性中 
+    当我们点击按钮时就 出现JavaScript的代码 
+
+ 结果与行为耦合  不方便维护   不建议室友
+    -->
+    <button onclick="alert('将JavaScript代码写入到 标签onclick属性中');">点我一下</button>
+
+    <!-- 写入到 herd超链接的内容  -->
+    <a href="JavaScript:alert('将JavaScript代码写入到 超链接href 中');">点一下</a>
+    <a href="JavaScript:;">点一下</a>
+</body>
+</html>

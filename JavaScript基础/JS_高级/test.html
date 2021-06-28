@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //    window.onload = function (){
+    //     document.getElementById("btn").onclick = function(){
+    //         alert("你点我了！！")
+    //     }
+    //     setTimeout(function(){
+    //         alert("隔两秒，我出来一下！")
+    //     },2000)
+
+    //    }
+
+       
+    // (function () {
+    //         var a=1
+    //         function test(){
+    //             console.log(++a)
+    //         }
+    //         window.$ = function(){
+    //             return{
+    //                 test:test
+    //             }
+    //         }
+    //     })()
+
+    //     $().test()
+    // console.log(Date.prototype.constructor  === Date) //true
+
+//     function Fun() {
+//         this.prototype = {}
+//     }
+//     console.log(Fun.prototype)
+//     var fun = new Fun()
+   
+//     console.log(fun.prototype instanceof Object)
+//     console.log(Object.prototype instanceof Object)
+//     console.log(Function.prototype === Function.__proto__)
+
+// console.log(Object.prototype.__proto__)//null
+    // Fun.prototype.test = function(){
+    //     console.log("调用了")
+    // }
+    //console.log(fun.test())
+
+   
+    // var fn1 = new Fn()
+    // console.log(fn1 instanceof Fn)//true
+    // console.log(fn1 instanceof Object) //true
+    // function Fn(){ }
+    // Fn.prototype.n = 1
+    // var fn1 = new Fn()
+    // Fn.prototype = {
+    //     n:2,
+    //     m:3
+    // }
+    // var fn2 = new Fn()
+    // console.log(fn1.n,fn1.m,fn2.n,fn2.m)//1 undefined 2 3
+
+    // var a = 10
+    // var bar = function(x){
+    //     var b =5
+    //     foo(x + b)
+    // }
+    // var foo = function(y){
+    //     var c = 10
+    //     console.log(a + c + y)
+    // }
+    // bar(10)
+
+    // console.log("global begin" + i)
+    // var i = 1
+    // foo(1)
+    // function foo(i){
+    //     if(i==4){
+    //         return
+    //     }
+    //     console.log('foo() begin:' + i)
+    //     foo(i + 1)
+    //     console.log('foo() end:' +i)
+    // }
+    // console.log("global end:" + i)
+
+    // function a(){}
+    // var  a;
+    // console.log(typeof a)
+
+    // var x = 10
+    // function fn(){
+    //     console.log(x)
+    // }
+    // function show(f){
+    //     var x=20
+    //     f()
+    // }
+    // show(fn)
+    // var obj = {
+    //     fn2:function(){
+    //         console.log(fn2)
+    //         console.log(this.fn2)
+    //     }
+    // }
+    // obj.fn2()   
+   
+    
+
+    // function showDlay(msg,time){
+    //     setTimeout(function(){
+    //         alert(msg)
+    //     },time)
+    // }
+    // showDlay('dsjkldgj',5000)
+    // function fn1 (){
+    //     //此时闭包就已经产生了（函数提升，内部函数对象已经创建了）
+    //     var a = 2
+    //     function fn2(){
+    //         a++
+    //         console.log(a)
+    //     }
+    //     return fn2
+    // }
+    // var f = fn1()
+    // f()
+    // f()
+    // f = null //闭包死亡，包含闭包的函数对象成为垃圾对象
+
+        // function fn(){
+        //      a = 3
+        //     console.log(a)//3 
+        // }
+        // fn()
+        // console.log(a) //3
+
+    // var name = 'window'
+    // var Object = {
+    //     name:"object",
+    //     getNameFunc : function(){
+    //         return function(){
+    //             return this.name
+    //         }
+    //     }
+    // }
+    // alert(Object.getNameFunc()())//window
+
+    // var name = 'window'
+    // var Object = {
+    //     name:"object",
+    //     getNameFunc : function(){
+    //         var that = this 
+    //         return function(){
+    //             return that.name
+    //         }
+    //     }
+    // }
+    // alert(Object.getNameFunc()())
+
+    // function fun(n,o){
+    //     console.log(o)
+    //     return{
+    //         fun:function (m) {
+    //             return fun(m,n)
+    //         }
+    //     }
+    // }
+    // var a = fun(0);a.fun(1);a.fun(2);a.fun(3);// undefined 0 0 0
+    // var b = fun(0);b.fun(1);b.fun(2);b.fun(3);// undefined 0 0 0
+    // var c = fun(0);c.fun(1);c.fun(2);c.fun(3);// undefined 0 0 0
+// function createPerson(name,age) {
+//     var obj = {
+//        name: name,
+//        age: age
+//    }  
+//    return obj
+// }
+// p = createPerson('Tom',13)
+// console.log(p.name)
+// function Person(name,age) {
+//     this.name = name
+//     this.age = age
+//     this.setname = function (name) {
+//         this.name = name
+//     }
+// }
+// var p1 = new Person('Tom',15)
+// console.log(p1.name,p1.age)
+// console.log( p1 instanceof Person)
+// function Dog(name,age) {
+//     this.name = name
+//     this.age = age
+//     Dog.prototype.setname = function (name) {
+//         this.name = name
+//     }
+// }
+// var d1 = new Dog('旺财',2)
+// console.log(d1.name,d1.age)
+// var d2 = new Dog('狗狗',3)
+// console.log(d1,d2)
+
+// function Supper() {
+//     this.supper = 'sup property'
+// }
+// Supper.prototype.showSupper= function () {
+//     console.log(this.supper)
+// }
+// //子类 
+// function Sub() {
+//     this.Sub = 'sub property'
+// }
+// Sub.prototype.showSub= function () {
+//     console.log(this.Sub)
+// }
+// //实现继承   子类型的原型是父类型的一个实例对象
+// Sub.prototype = new Supper()
+// Sub.prototype.constructor = Sub
+// var sub1 = new Sub()
+// sub1.showSupper() //sup property
+// console.log(sub1.constructor)   // ƒ Supper() {this.supper = 'sup property'}
+
+// function Person(name , age) {
+//     this.name = name
+//     this.age = age
+// }
+// Person.prototype.setname = function (name) {
+//     this.name = name
+// }
+
+// function Student(name , age , price) {
+//     Person.call(this,name,age)
+//     this.price = price
+// }
+
+// Student.prototype = new Person()
+// Student.prototype.constructor =  Student
+// Student.prototype.steprice = function (price) {
+//     this.price = price
+// }
+
+// var stu = new Student('tom',19,100000)
+// stu.setname('bob') 
+// console.log(stu.name,stu.age,stu.price)   //bob 19 100000
+// window.onload = function () {
+//     var btn = document.getElementById('btn')
+//     btn.onclick = function () {
+//         var start = Date.now()
+//         console.log('启动定时器前----')
+//         setTimeout(function () {
+//             console.log('定时器执行了',Date.now() - start)
+//         }, 200);
+//         console.log('启动定时器后----')
+//         for (var i = 0; i<1000000000;i++){
+
+//         }
+//     }
+// }
+
+ 
+
+    </script>
+</head>
+<body>
+    <!-- <button id = 'btn'>定时器执行</button> -->
+    <!-- <script>
+    window.onload = function(){
+      var btns = document.getElementsByTagName('button') 
+      for (var i = 0,length = btns.length; i<length;i++ ){
+          (function(i){
+            var btn = btns[i]
+            btn.onclick = function(){
+                alert('第'+(i+1)+'个')
+            }
+          })(i)
+      }
+    }
+    </script> -->
+<!-- <input type="text" placeholder="数值" id = 'number'>
+<button id  = 'btn'>计算</button>
+<script>
+function fibonacci(n){
+    return n<=2 ? 1 : fibonacci(n-1)+fibonacci(n-2)
+}
+var input = document.getElementById('number')
+document.getElementById('btn').onclick = function(){
+    var number = input.value
+    var result = fibonacci(number)// 将计算的步骤 给分线程来计算 
+    alert(result)
+}
+
+</script> -->
+
+<input type="text" placeholder="数值" id = 'number'>
+<button id  = 'btn'>计算</button>
+<script>
+function fibonacci(n){
+    return n<=2 ? 1 : fibonacci(n-1)+fibonacci(n-2)
+}
+var input = document.getElementById('number')
+document.getElementById('btn').onclick = function(){
+    var number = input.value
+    // 将计算的步骤 给分线程来计算 
+    Worker.onmessage = functionk
+   
+    alert(result)
+}
+
+
+</script> 
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .test{
+            width: 400px;
+            height: 400px;
+            position:absolute;
+            background-color: grey;
+            border:2px solid;
+            left:0;
+            right: 0;
+            top:0;
+            bottom: 0;
+            margin: auto;
+            perspective: 300px;
+            perspective-origin: left top;
+        }
+        .inner{
+            width: 200px;
+            height: 200px;
+            position:absolute;
+            background-color: pink;
+            border-radius: 50%;
+            left:0;
+            right: 0;
+            top:0;
+            bottom: 0;
+            margin: auto;
+            font:30px/200px "微软雅黑";
+            text-align: center;
+            transition: 4s;
+            transform-style: preserve-3d;
+        }
+        .test:hover >.inner{
+            transform:rotate3d(1,1,1,360deg);
+        }
+    </style>
+</head>
+<body>
+     <div class="test">
+         <div class="inner">郑丽丽</div>
+     </div>    
+
+</body>
+</html>

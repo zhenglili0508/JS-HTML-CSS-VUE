@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body > p:first-child{
+            background-color: rgb(14, 250, 250);
+        }
+        body > p:last-of-type{
+            background-color: brown;
+        }
+        #pp > :first-child{
+            font-size: 30px ;
+            background-color: cornflowerblue;
+        }
+        body > :nth-child(4){
+            background-color: forestgreen;
+        }
+        #ppp > :nth-child(even){
+            background-color: rgb(152, 203, 235);
+        }
+        #ppp > :nth-child(odd){
+            background-color: rgb(7, 129, 243);
+        }
+    </style>
+</head>
+<body>
+
+    <p>我是第一个p标签</p>
+    <p>我是第二个p标签</p>
+    <p>我是第三个p标签</p>
+    <p>我是第四个p标签</p>
+    <p>我是第五个p标签</p>
+    <p>我是最后的p标签</p>
+    <div id = 'pp'>
+        <p>我是div里面的第一个p标签</p>
+    </div>
+    <div id = 'ppp'>
+        <p>测试奇数行偶数行的</p>
+        <p>测试奇数行偶数行的</p>
+        <p>测试奇数行偶数行的</p>
+        <p>测试奇数行偶数行的</p>
+        <p>测试奇数行偶数行的</p>
+        <p>测试奇数行偶数行的</p>
+    </div>
+<p>我是body里面的最后一个p标签</p>
+</body>
+</html>

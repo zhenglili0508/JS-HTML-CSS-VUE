@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="test1">
+        <p v-upper-text='msg1'></p>
+        <p v-lower-text='msg1'></p>
+    </div>
+
+    <div id="test2">
+        <p v-upper-text='msg2'></p>
+        <p v-lower-text='msg2'></p>
+    </div>
+</body>
+<script type="text/javascript" src="./js/vue.js"></script>
+
+<script type="text/javascript">
+// 定义全局的指令  调用 Vue.directive
+// el:指令属性所在的标签对象
+// bining:包含指令相关信息数据的对象
+Vue.directive('upper-text',function(el , binding){
+    console.log(el , binding)
+    el.textContent = binding.value.toUpperCase()
+})
+
+new Vue({
+        el:"#test1",
+        data:{
+            msg1 :'ZhouShenShen'
+        },
+        // 局部指令   只在这一部分有用 
+        directives:{
+            'lower-text':function(el , binding){
+            console.log(el , binding)
+            el.textContent = binding.value.toLowerCase()
+            }
+        },
+    }) 
+
+new Vue({
+    el:"#test2",
+    data:{
+        msg2 :'Just Do It!!'
+    },
+    
+}) 
+</script>
+</html>

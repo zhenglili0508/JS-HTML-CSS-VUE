@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+          
+        }
+        div >h1{
+            color: red;
+            background-color: yellow;
+        }
+        div >h1+h2{
+            background-color: rebeccapurple;
+        }
+        div >h1 ~h2{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>1</h1>
+        <div></div>
+        <h2>1</h2>
+        <h3>1</h3>
+        <h4>1</h4>
+        <h5>5</h5>
+    </div>
+</body>
+</html>

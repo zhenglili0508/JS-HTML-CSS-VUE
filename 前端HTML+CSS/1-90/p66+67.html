@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开班信息</title>
+    <style>
+        *{
+            margin: 0 ;
+            padding: 0;
+        }
+        body{
+            font-size: 12px/1;
+        }
+        .outer{
+            width: 300px;
+            height: 473px;
+            background-color: peachpuff;
+            margin: 100px auto;
+        }
+        .title{
+            border-top: 2px #019e8b solid;
+            height: 36px;
+            background-color: rgb(240, 238, 238);
+            /* ------在行高里 垂直居中  所以设置我们title的行高--------  */
+            line-height: 36px;
+            padding: 0px 22px 0px 16px;
+        }
+        .title h3{
+            font-size: 17px;
+            float: left;
+        }
+        .title a{
+            color: red;
+            float: right;
+        }
+        .content{
+            border: rgb(192, 194, 196) 1px solid;
+        }
+        /* 设置内容中的超链接 */
+        .content a{
+            text-decoration: none;
+        }
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 创建一个外部 div 块 容纳整个内容 -->
+    <div class="outer">
+        <!-- 开班信息的头部 -->
+        <div class="title"><h3>最近开班</h3><a href="#">16年面授开班计划</a></div>
+        <!-- 开班信息的主要内容 -->
+        <div class="content">
+            <h3><a>JavaEE+云计算-全程就业班</a></h3>
+            <ul>
+                <li><a href="#">开班时间：<span>2016-04-27</span></a>
+                    <a href="#"><span>预约报名</span></a></li>
+            </ul>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

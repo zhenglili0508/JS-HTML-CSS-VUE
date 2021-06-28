@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style id="css_li">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin-top: 100px;
+            margin-left: 500px;
+            border-radius: 50%;
+            border: 2px solid;
+            
+        }
+        ul{
+            list-style: none;
+        }
+        ul > li{
+            position:absolute;
+            left: 99px ;
+            top:0 ;
+            width: 2px;
+            height: 10px;
+            background: black;
+            transform-origin: center 100px;
+        }
+        ul > li:nth-child(5n+1){
+            height: 15px;
+            }
+        #wrap > .hour{
+            position:absolute;
+            left: 97px;
+            top:70px;
+            width: 6px;
+            height: 30px;
+            background: black;
+            transform-origin: center bottom;
+        }
+        #wrap > .min{
+            position:absolute;
+            left: 98px;
+            top:50px;
+            width: 4px;
+            height: 50px;
+            background: rgb(85, 82, 82);
+            transform-origin: center bottom;
+        }
+        #wrap > .sec{
+            position:absolute;
+            left: 99px;
+            top:30px;
+            width: 2px;
+            height: 70px;
+            background:red;
+            transform-origin: center bottom;
+        }
+        #wrap > .icon{
+            position:absolute;
+            left: 90px;
+            top: 90px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background:deeppink;
+        }
+        /* #wrap:hover .sec{
+            transform:rotate(6deg) ;
+        }
+        #wrap:hover .min{
+            transform:rotate(60deg) ;
+        }
+        #wrap:hover .hour{
+            transform:rotate(120deg) ;
+        } */
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul>
+            <li></li>
+        </ul>
+        <div class="hour"></div>
+        <div class="min"></div>
+        <div class="sec"></div>
+        <div class="icon"></div>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        var ul_Node = document.querySelector("#wrap>ul")
+        var li_html = ""
+        var css_li = document.querySelector("#css_li")
+        var css_li_text = ""
+
+        for(var i=0;i<60;i++){
+            li_html += "<li></li>"
+            css_li_text +="ul > li:nth-child("+(i+1)+"){transform: rotate("+(i*6)+"deg);}"
+        }
+        ul_Node.innerHTML = li_html
+        css_li.innerHTML +=css_li_text
+        
+       
+        var hournode = document.querySelector("#wrap > .hour")
+        var minnode = document.querySelector("#wrap > .min")
+        var secnode = document.querySelector("#wrap > .sec")
+        
+        setInterval( move, 1000)
+        function move(){
+            var date  = new Date()
+            
+            var s = date.getSeconds();
+            var m = date.getMinutes()+s/60;
+            var h = date.getHours()+m/60;
+            
+            hournode.style.transform = "rotate("+(h*30)+"deg);"
+            minnode.style.transform = "rotate("+(m*6)+"deg);"
+            secnode.style.transform = "rotate("+(s*6)+"deg);"
+        }
+
+
+    }
+</script>
+</html>

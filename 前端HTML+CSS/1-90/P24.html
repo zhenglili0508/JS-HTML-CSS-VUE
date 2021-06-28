@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用的选择器</title>
+    <style>
+        p {
+            color: red;
+            font-size: 20px;
+        }
+        #p1{
+            color: springgreen;
+        }
+        .p2{
+            color: violet;
+        }
+        .hello{
+            font-size: 50px;
+        }
+        p,#p1,.p2{
+            background-color: yellow;
+        }
+        /* *{
+            color: yellowgreen;
+        } */
+        span.p2{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <p>锄禾日当午</p>
+    <p id = "p1">锄禾日当午</p>
+    <p class="p2">锄禾日当午</p>
+    <p class="p2">锄禾日当午</p>
+    <p class="p2 hello">锄禾日当午</p>
+    <span class="p2">锄禾日当午</span>
+</body>
+</html>

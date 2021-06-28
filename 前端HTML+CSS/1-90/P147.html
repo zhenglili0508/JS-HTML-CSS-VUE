@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,boby{
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .test{
+            width: 300px;
+            height: 300px;
+            /* background-color: rgb(226, 224, 219); */
+            position: absolute;
+            left: 0;
+            right: 0;
+            top:0;
+            bottom: 0;
+            margin: auto;
+            /* 两秒钟 转完 */
+            transition: 2s;
+        }
+        .test > div{
+            margin: 10px;
+            width: 130px;
+            height: 130px;
+            background-color:deeppink ;
+            float: left;
+            box-sizing: border-box;
+            border:1px solid ;
+        }
+        .test > div:nth-child(1),.test > div:nth-child(4){
+            border-radius: 0px 80px ;
+        }
+        .test > div:nth-child(2),.test > div:nth-child(3){
+            border-radius: 80px 0px ;
+        }
+        .test:hover{
+            /* 动画  转 120度 */
+            transform: rotate(120deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="test">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

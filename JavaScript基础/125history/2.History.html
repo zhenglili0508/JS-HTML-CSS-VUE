@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+            // alert(history.length)  //获取当次访问的链接数量 
+            window.onload = function(){
+                var btn1 = document.getElementById("btn1")
+                btn1.onclick = function(){
+                    //history.back()
+                    //history.forward()
+                    history.go(-1)
+                }
+            }
+    </script>
+</head>
+<body>
+    <button id = "btn1">点我一下</button>
+    <h3>History</h3>
+    <a href="test1.html">前进 去test1</a>
+</body>
+</html>

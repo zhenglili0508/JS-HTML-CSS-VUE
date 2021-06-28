@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+
+    <div id="demo" > 
+       姓：<input type="text" placeholder="First Name" v-model="fristname1"><br>
+       名：<input type="text" placeholder="Last Name" v-model="fristname2"><br>
+       姓名1(单向)：<input type="text" placeholder="Full Name1" v-model="Fullname"><br>
+       姓名2(单向)：<input type="text" placeholder="Full Name2" v-model="Fullname2"><br>
+       姓名3(双向)：<input type="text" placeholder="Full Name3" v-model="Fullname3"><br>
+<!-- 计算属性 高级  
+     计算属性存在缓存，多次读取只执行一次getter计算 
+     getter:属性的get方法
+     setter:属性的set方法
+     执行下面这部分代码的时候    只执行了 Fullname方法一次   
+     因为有缓存   缓存的对象名是 key:Fullname
+        值是 实际的值  
+-->
+      <p>{{Fullname}}</p>
+      <p>{{Fullname}}</p>
+      <p>{{Fullname}}</p>
+
+    </div>
+</body>
+<script type="text/javascript" src="./js/vue.js"></script>
+<script type="text/javascript">
+
+const vm = new Vue({   
+   el:'#demo',
+   data :{
+    fristname1:'A',
+    fristname2:'B',
+    Fullname2:'A B',
+   },
+   computed:{
+       // 什么时候执行： 初始化显示/相关的data属性
+    Fullname(){  //计算属性中的一个方法   返回两个值的拼接  中间加了空格
+        return this.fristname1 +" "+ this.fristname2
+    },
+    Fullname3:{   //这是一个对象   对象里面有两种方法 
+        get(){  
+            return this.fristname1 +" "+ this.fristname2  //计算并返回当前的值 
+        },
+        set(value){  //更新数据
+            const names = value.split(" ")
+            this.fristname1 = names[0]   // 错误在于  数组的下标！！！
+            this.fristname2 = names[1]
+        }
+    }
+   },
+   watch:{  //配置监视
+    fristname1:function(value){//  fristname1 的值发生了变化
+        this.Fullname2 = value+" "+this.fristname2
+    }
+  }
+  })
+
+  vm.$watch("fristname2",function(value){  //这是一个
+    //更新Fullname2
+    this.Fullname2 = this.fristname1+" "+value
+  })
+
+
+</script>
+</html>

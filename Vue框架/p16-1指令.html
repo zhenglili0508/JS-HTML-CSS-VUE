@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="example">
+     <p ref='content'>这是要获取到的信息</p>
+    <button @click = 'hint'> 提示</button> 
+    <!-- v-text 在解析之前是存在的   解析之后就没有了  -->
+    <p v-text='msg'></p>
+    <p>{{msg}}</p>
+    <p v-cloak>{{msg}}</p>
+    </div>
+</body>
+<script type="text/javascript" src="./js/vue.js"></script>
+
+<script type="text/javascript">
+alert(111111111111111)
+new Vue({
+        el:"#example",
+        data:{
+            msg :'zhoushenshen'
+        },
+        methods:{
+            hint(){
+                // 前面给p标签给了唯一的标识符 content
+                //  vue对象（this）通过$refs属性访问这个元素（content）的对象（textContent）
+                alert(this.$refs.content.textContent)
+            }
+        }
+    }) 
+</script>
+</html>

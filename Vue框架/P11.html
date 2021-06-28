@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="example">
+        <h2>1,绑定事件监听</h2>
+        <button v-on:click='test1'>test1</button>         <!-- 绑定监听 原始写法！ -->
+        <button @click = 'test2'>test2</button>           <!-- 绑定监听写法 -->
+        <button @click = 'test3'>test3</button>            <!-- 没有指定参数的时候   自动传一个event -->
+        <button @click = 'test4($event)'>test4</button>     <!-- $event 代表事件对象！ -->
+        <button @click = 'test5(123,$event)'>test5</button>     <!--参数和 $event ！ -->
+
+        <h2>2,事件修饰符</h2>
+        <div style="width: 200px; height: 200px; background-color: pink; " @click = 'test6'>
+            <div style="width: 100px; height: 100px; background-color:deeppink;"  @click.stop = 'test7'></div>  <!-- .stop 解决事件冒泡 ！ -->
+        </div>
+        <a href="https://www.baidu.com" @click.prevent = 'test8'>去百度</a> <!-- .prevent 阻止事件的默认行为 -->
+
+        <h2>3,按键修饰符</h2>
+        <input type="text" @keyup="test9">
+        </br>
+        <input type="text" @keyup.enter="test10">
+        <!-- <input type="text" @keyup.13="test10"> -->   
+
+    </div>
+</body>
+<script type="text/javascript" src="./js/vue.js"></script>
+<script type="text/javascript">
+new Vue({
+    el:'#example',
+    data:{
+        test1(){
+            alert("test1")
+        },
+        test3(event){  //没有指定参数的时候   自动传一个event
+            event11 = event.target.innerHTML   // 获取该事件内部的内容
+            alert(event11)
+        },
+        test5(number,event){
+            alert(number + '----------' +event.target.innerHTML)
+        },
+        // 事件冒泡   下面这6行 代码   当点击 内部的深粉色的时候也会 alert("out")   
+        test6(){
+            alert("out")
+        },
+        test7(){
+            alert("inner")
+        }, 
+        test8(){
+            alert("去百度的路上")
+        },
+        test9(event){
+            if(event.keyCode===13){  //keyCode 判断是不是按下了enter键
+                alert( '----------' +event.target.value+""+event.keyCode)
+            }
+        },
+        test10(event){
+                alert( '这是第二个' +event.target.value+""+event.keyCode)  
+        }
+    }
+
+})
+</script>
+</html>

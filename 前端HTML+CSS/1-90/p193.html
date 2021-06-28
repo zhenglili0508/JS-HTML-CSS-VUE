@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #warp{
+            width: 400px;
+            height: 400px;
+            border: 2px pink solid;
+            margin-left: 100px;
+            display: flex;
+        }
+        #warp .item{
+            height: 50px;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+            /* 等分布局   但是每一块的内部是不一样的所以分配了也是不一样多的 */
+            /* flex-grow: 1; */
+            /* 因为模块的宽度是由内部元素撑开的  在没有设置flex-basis的时候   该值为元素的宽度 */
+            /* 要实现真正意义上的等分布局的时候    需要吧flex-basis清0 */
+            /* flex-basis: 0;  */
+            /* 该属性只有在  有溢出的时候才会有作用   所以 默认的1是正确的 */
+            /* flex-shrink: 1; */
+            /* 简写属性 flex :1   代表了三个值  */
+            flex :1;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="warp">
+       <div class="item">1</div>
+       <div class="item">22</div>
+       <div class="item">333</div>
+       <div class="item">4444</div>
+       <div class="item">55555</div>
+    </div>
+</body>
+</html>

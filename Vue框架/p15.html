@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="test">
+        <p>{{date}}</p>
+        <p>完整版：{{date | datestring}}</p>
+        <p>年月日：{{date | datestring('YYYY MM DD')}}</p>
+        <p>时分秒：{{date | datestring(' HH:mm:ss')}}</p>
+    </div>
+</body>
+<script type="text/javascript" src="./js/vue.js"></script>
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.js"></script>
+
+<script type="text/javascript">
+// 定义过滤器     vue的函数对象
+Vue.filter("datestring", function(value,format='YYYY MM DD , HH:mm:ss'){
+    // value时传来的数据    后面是格式  
+    // return moment(value).format(format || 'YYYY MM DD , HH:mm:ss')
+    return moment(value).format(format)
+}
+)
+new Vue({
+        el:"#test",
+        data:{
+            date: new Date()
+        }
+    }) 
+
+</script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="test">
+        <h1>列表过滤</h1>
+        <input type="text" v-model="searchName1">
+        <ul>
+            <li v-for="(p,index) in filterPersons" :key='index'>
+                {{index}} -----{{p.name}} --{{p.age}}
+            </li>  
+        </ul>
+       <button @click="setoderType(1)">年龄升序</button>   <!-- 给排序的内容传参 -->
+       <button @click="setoderType(2)">年龄降序</button>
+       <button @click="setoderType(0)">原本序列</button>
+    </div>
+</body>
+<script type="text/javascript" src="./js/vue.js"></script>
+<script type="text/javascript">
+ new Vue({
+    el:'#test',
+    data:{
+        searchName1: "",
+        oderType: 0,  // 0 原本序列   
+        persons:[  //vue 
+        {name:'tom0',age:18},
+        {name:'tom1',age:19},
+        {name:'tom2',age:16},
+        {name:'tom3',age:15}
+        ]
+    },
+    computed:{
+        filterPersons () {
+            //定义相关的数据
+            const{searchName1,persons,oderType} = this
+            // alert(searchName1)
+            let fPersons ;
+            //对person过滤
+            fPersons = persons.filter( p => p.name.indexOf(searchName1) !==-1)
+            if(oderType!==0){
+                fPersons.sort(function(p1,p2){
+                    if(oderType===2){
+                        return p2.age-p1.age
+                    }else{
+                        return p1.age-p2.age
+                    }
+                })
+            }
+            return fPersons
+        }
+    },
+    methods:{   //定义一个方法
+        setoderType(oderType){
+        this.oderType = oderType
+        }
+    }
+    
+ })
+</script>
+</html>

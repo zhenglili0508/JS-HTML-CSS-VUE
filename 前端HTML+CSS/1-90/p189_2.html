@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #warp{
+            width: 400px;
+            height: 400px;
+            border: 2px pink solid;
+            margin-left: 100px;
+            display: flex;
+            /* flex-direction: row-reverse; */
+            -webkit-box-align: start;
+        }
+        #warp .item{
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            /* 老版本 */
+            -webkit-box-flex: 1;
+            /* flex-grow: 1; */
+        }
+        #warp .item:nth-child(1){
+            /* 总共分为八份    第一块就占了4份 */
+            /* 老版本 */
+            -webkit-box-flex: 4;
+            /* flex-grow: 4; */
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="warp">
+       <div class="item">1</div>
+       <div class="item">2</div>
+       <div class="item">3</div>
+       <div class="item">4</div>
+       <div class="item">5</div>
+    </div>
+</body>
+</html>

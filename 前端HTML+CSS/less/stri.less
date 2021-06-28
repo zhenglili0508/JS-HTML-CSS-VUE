@@ -1,0 +1,19 @@
+// 匹配模式！！  输入的内容与less中的值匹配   如果一样就可以
+.stri(@_){
+    width: 0px;
+    height: 0px;
+    border-width: 40px;
+    border-style: solid;
+}
+.stri(L,@c){
+    border-color: transparent  @c transparent transparent ;
+}
+.stri(R,@c){ 
+    border-color: transparent transparent transparent @c;
+}
+.stri(T,@c){  
+    border-color: @c transparent transparent transparent ;
+}
+.stri(P,@c){
+    border-color: transparent transparent  @c transparent ;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <p v-if="ok">成功了 </p>
+        <p v-else>失败 </p>
+        <p v-show="ok"> 耶耶耶成功了 </p>
+        <p v-show ='!ok'>哇哇哇失败 </p>
+        <p v-show ='display=ture'>这是隐藏的 </p>
+        <button @click="ok=!ok">切换</button>
+    </div>
+
+</body>
+<script type="text/javascript" src="./js/vue.js"></script>
+<script type="text/javascript">
+ new Vue({
+     el:'#demo',
+     data:{
+        ok:false,
+     }
+ })
+
+</script>
+</html>

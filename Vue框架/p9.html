@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   #demo{
+       text-align: center;
+   }
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <h1>测试：v-for遍历数组</h1>
+        <ul>
+            <li v-for="(p,index) in persons" :key='index'>
+                {{index}} ----------{{p.name}} -----{{p.age}}
+                ------<button  @click = "deleteP(index)">删除</button>
+                ------<button  @click = "updataP(index,{name:'cat',age:2})">更新</button>
+            </li>  
+        </ul>
+        <h1>测试：v-for遍历对象</h1>
+        <ul> 
+            <li v-for = "(value , key) in persons[0]" :key='value'>
+                {{key}} ---- {{value}}  
+            </li>
+        </ul>
+
+    </div>
+</body>
+<script type="text/javascript" src="./js/vue.js"></script>
+<script type="text/javascript">
+ new Vue({
+    el:'#demo',
+    data:{
+        persons:[  //vue 
+        {name:'tom0',age:18},
+        {name:'tom1',age:19},
+        {name:'tom2',age:16},
+        {name:'tom3',age:15}
+    ]
+    },
+    methods:{
+        deleteP(index){
+            //删除index指定的数据
+            this.persons.splice(index,1)  //实现删除操作
+        },
+        updataP(index,newP){
+            // this.persons[index] = newP  //并没有改变数据本身 
+            this.persons.splice(index,1,newP)   //实现了更改操作
+            //甚至 splice 可以实现 增加操作   
+            //this.persons.splice(index,0,newP)   //实现了增加操作
+        }
+    }
+ })
+</script>
+</html>

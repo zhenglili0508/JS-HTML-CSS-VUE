@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 300px;
+            height: 300px;
+            position:absolute;
+            background-image: url(../尚硅谷前端/img/3.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border:2px solid;
+            left:0;
+            right: 0;
+            top:0;
+            bottom: 0;
+            margin: auto;
+            
+        }
+        .inner{
+            width: 100px;
+            height: 100px;
+            position:absolute;
+           
+            left:0;
+            right: 0;
+            top:0;
+            bottom: 0;
+            margin: auto;
+            transition: 4s;
+            transform-style: preserve-3d;
+            transform-origin:center center -50px;
+            
+        }
+        .inner >div{
+            position:absolute;
+            width: 100px;
+            height: 100px;
+            background:rgba(8, 227, 247, 0.1) ;
+            border: 1px solid ;
+            font:30px/100px "微软雅黑";
+            text-align: center;
+            backface-visibility: hidden;
+           
+        }
+        .inner :nth-child(1){
+            z-index:1;
+            
+        }
+        .inner :nth-child(2){
+          transform: translatez(-100px) rotateX(180deg);
+          
+
+        }
+        .inner :nth-child(3){
+            transform-origin: right;
+            transform:rotatey(-90deg);
+            left:-100px 
+
+        }
+        .inner :nth-child(4){
+            transform-origin: left;
+            transform:rotatey(90deg);
+            right: -100px;
+        }
+        .inner :nth-child(5){
+            transform-origin: bottom;
+            transform:rotatex(90deg);
+            top: -100px;
+        }
+        .inner :nth-child(6){
+            transform-origin: top;
+            transform:rotateX(-90deg);
+            bottom: -100px;
+        }
+
+        .wrap:hover >.inner{
+          
+            transform:rotate3d(1,0,0,360deg);
+        }
+    </style>
+</head>
+<body>
+     <div class="wrap">
+         <div class="inner">
+             <div>前</div>
+             <div>后</div>
+             <div>左</div>
+             <div>右</div>
+             <div>上</div>
+             <div>下</div>
+         </div> 
+     </div>    
+
+</body>
+</html>

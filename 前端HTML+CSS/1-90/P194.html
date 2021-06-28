@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .row .item a{
+             text-decoration: none;
+             color:gray;
+             display: block;
+        }
+        .row .item a:hover{
+            background-color:lightskyblue;
+        }
+        .nav{
+           background-color:mediumturquoise;
+
+        }
+        .row{
+            display: flex;
+        }
+        .row .item{
+            text-align: center;
+            flex:1
+        }
+        .row>.item>a::before{
+            content: "";
+            display: block;
+            width: 86px;
+            height: 86px;
+            margin:  0 auto;
+           
+        }
+        .row:nth-child(1)>.item:nth-child(even)>a::before{
+            background:url("img/inco1.png") no-repeat;
+        }
+        .row:nth-child(1)>.item:nth-child(odd)>a::before{
+            background:url("img/inco2.png") no-repeat;
+        }
+        .row:nth-child(2)>.item:nth-child(even)>a::before{
+            background:url("img/inco2.png") no-repeat;
+        }
+        .row:nth-child(2)>.item:nth-child(odd)>a::before{
+            background:url("img/inco1.png") no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="row">
+            <div class="item"><a href="#">天猫</a></div>
+            <div class="item"><a href="#">聚划算</a></div>
+            <div class="item"><a href="#">天猫国际</a></div>
+            <div class="item"><a href="#">天猫超市</a></div>
+            <div class="item"><a href="#">外卖</a></div>
+        </div>
+        <!-- 第二行 -->
+        <div class="row">
+            <div class="item"><a href="#">充值中心</a></div>
+            <div class="item"><a href="#">飞猪旅行</a></div>
+            <div class="item"><a href="#">金币</a></div>
+            <div class="item"><a href="#">拍卖</a></div>
+            <div class="item"><a href="#">分类</a></div>
+        </div>
+    </div>
+</body>
+</html>

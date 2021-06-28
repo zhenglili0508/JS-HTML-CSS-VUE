@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #waimian{
+            margin-left: 20px;
+            width: 600px;
+            height: 500px;
+            border: deeppink 1px solid;
+            position: relative;
+        }
+        #test1{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            transition: 2s ;
+        }
+        #test2{
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            transition: 2s ;
+        }
+
+        #waimian:hover #test1{
+            transform: translateX(100px) scale(0.5);
+        }
+        #waimian:hover #test2{
+            transform: scale(0.5) translateX(100px) ;
+        }
+    </style>
+</head>
+<body>
+    <div id="waimian">
+    <div id="test1"></div>
+    <div id="test2"></div>
+    </div>
+
+</body>
+<script>
+    // window.onload = function(){
+    //     var nodetest = document.querySelector("#test");
+    //     nodetest.style.width = "300px"
+    //     nodetest.style.width = "100px"
+    // }
+     
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 选中 class为 inner 的第一个 孩子*/
+         .test .inner:nth-child(1){
+            border: pink 1px solid;
+            }
+        /*本意是想选择 class为 inner 的第一个 孩子     但是由于该属性的bug 就会选择所以的为inner的class*/
+        .test .inner:nth-of-type(1){
+            border: blue 1px solid;
+        }
+        /* nth-of-type(1) 是以元素为中心的 */
+        .test p:nth-of-type(1){
+            border: yellowgreen 1px solid;
+            }
+    </style>
+</head>
+<body>
+    <div class="test">
+        <div class="inner">div</div>
+        <p class="inner">p</p>
+        <span class="inner">span</span>
+        <h1 class="inner">h1</h1>
+        <h2 class="inner">h2</h2>
+    </div>
+</body>
+</html>

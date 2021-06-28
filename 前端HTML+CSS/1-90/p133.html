@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         /* [attr] 选择包含该 name 元素的内容   attr是name */
+        div[name]{
+            background-color: pink;
+        }
+        /*  attr是val */
+        div[name = cqupt_zl]{  
+            color: yellow;
+        }
+        /*  attr是val开头  并且以空格隔开 */
+        div[name ~= cqupt]{
+            color: blue;
+        }
+        /*  attr是val开头 不规定一定要空格 */
+        div[name |= cqupt]{
+            color: rgb(43, 255, 0);
+        }
+        /*  attr是val开头的 */
+        div[name ^= cqupt]{
+            color: #ff0095;
+        }
+        /*  attr是val结尾的 */
+        div[name $= zl]{
+            color: #ff6600;
+        }
+        /*  attr中包含了val */
+        div[name *= z]{
+            color: #5dc7da;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div name="cqupt_zl">zl</div>
+        <div name="cqupt_cy">cy</div>
+        <div name="cqupt cy">cy</div>
+        <div name="cqupt_ym">ym</div>
+        <div name="cqupt ym">ym</div>
+        <div name="cqupt_zl">zl</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .nav{
+            margin: 30px auto;
+            list-style: none;
+            background-color: rgb(177, 154, 92);
+            /* 在IE6中，如果为元素指定了一个宽度，则会默认开启hasLayout   zoom = 1 */
+            width: 1000px;
+            overflow: hidden;
+            zoom: 1;
+        }
+        .nav li{
+            float: left;
+            width: 25%;       
+        }
+        .nav a{
+            
+            /* 将a转换为块元素 */
+            display: block;
+            /* 设置a的宽度与li一样 */
+            width: 100%;
+            height: 100%;
+            /* 文字居中 */
+            text-align: center ;
+             /* 上面加宽 */
+             padding: 5px 0;
+            /* 去除下划线 */
+            text-decoration: none;
+            /* 字体设为白色 */
+            color: white;
+            /* 字加粗 */
+            font-weight: bold;
+        }
+         /* 点击颜色变化 */
+         .nav a:hover{
+             background-color:rgb(180, 72, 78);
+         }
+
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">新闻</a></li>
+        <li><a href="#">联系</a></li>
+        <li><a href="#">关于</a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插件</title>
+</head>
+<body>
+   <div id="test">
+       <p v-my-directive='msg'></p>
+   </div>
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<!-- ./vue-myPlugin.js  的引用要放在 vue.js之后！！！！  -->
+<script type="text/javascript" src="./vue-myPlugin.js"></script>
+<script>
+    Vue.use(MyPlugin)   //内部会执行 MyPlugin.install(Vue)
+    Vue.myGlobalMethod()
+    const vm = new Vue({
+        el:"#test",
+        data:{
+           msg:"zhoushenshen" 
+        },
+    }) 
+    vm.$myMethod()
+    </script>
+</html>

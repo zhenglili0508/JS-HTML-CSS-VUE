@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var count = document.getElementById("count")
+            //S的程序的执行速度是非常非常快的
+            //如果希望一段程序,可以每间隔一段时间执行一次,可以使用定时调用
+            //setIntervalo    定时调用
+            // for(var i =0 ;i<10000;i++){
+            //     count.innerHTML = i
+            // }
+            var num = 1
+            var timer = setInterval(function(){
+                count.innerHTML= num++;
+                    if( count.innerHTML>3){
+                    clearInterval(timer)
+                    }
+            },100)
+            
+        }
+    </script>
+</head>
+<body>
+    <h1 id = "count"> 1
+    </h1>
+</body>
+</html>

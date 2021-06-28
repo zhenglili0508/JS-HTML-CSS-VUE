@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #waimian{
+            width: 600px;
+            height: 400px;
+            border: deeppink 1px solid;
+            position: relative;
+        }
+        #test{
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+            left:0;
+            right: 0;
+            top:0;
+            bottom: 0;
+            margin: auto;
+            /* 过度动画！！！ */
+            transition-property: width; 
+            /* 动画完成时间  */
+            transition-duration: 2s;
+            /* 动画完成函数  */
+            /* transition-timing-function:linear;  */
+        }
+        /* #waimian:hover #test{
+            transition-property: height; 
+            width: 400px;
+            height: 400px;
+        } */
+    </style>
+</head>
+<body>
+    <div id="waimian">
+    <div id="test">
+    </div>
+    </div>
+
+</body>
+<script>
+    window.onload = function(){
+        var nodetest = document.querySelector("#test");
+        nodetest.style.width = "300px"
+        nodetest.style.width = "100px"
+    }
+     
+</script>
+</html>

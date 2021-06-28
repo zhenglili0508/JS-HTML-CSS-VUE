@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+
+    <div id="app" > 
+        <h1>1.双大括号表达式</h1>
+        <p>{{msg}}</p>
+        <p>{{msg.toUpperCase()}}</p>    <!-- 大写！ -->
+        <p v-text = "msg"></p>  <!-- 给添加文本 textcontent -->
+        <p v-html = "msg"></p>   <!-- 添加innerhtml -->
+
+        <h1>2.指令一:强制数据绑定</h1>
+        <!-- <img src="imgUrl" >    这样写的话只会直接把  imgUrl 的内容显示成文本内容-->
+        <!-- 下面两种强制绑定 -->
+        <img v-bind:src="imgUrl" >
+        <img :src="imgUrl" >
+
+        <h1>3.指令二:绑定事件监听</h1>
+        <button v-on:click="test">test1</button>
+        <button @click="test">test1</button>
+
+    </div>
+    
+</body>
+<script type="text/javascript" src="./js/vue.js"></script>
+<script type="text/javascript">
+
+const vm = new Vue({   
+    el: '#app',  
+    data: {   
+        msg: '<a href="http:www.baidu.com">zlll fdsgdf!</a>',
+        imgUrl:'../cqupt_jsj/img/2.jpg',
+    },
+    methods:{
+        test(){
+            alert("hehe")
+        }
+    }
+  })
+</script>
+</html>

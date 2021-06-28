@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 指定 显示/隐藏的过滤效果 */
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity 1s;  
+         }
+          /* 指定 隐藏的样式 */
+        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+            /* 设置不透明度 */
+        opacity: 0;   
+        }
+
+        .fade2-enter-active{
+            transition: all 1s;
+         }
+         .fade2-leave-active {
+            transition: all 3s;
+         }
+          /* 指定 隐藏的样式 */
+        .fade2-enter, .fade2-leave-to /* .fade-leave-active below version 2.1.8 */ {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="test1">
+        <button @click="isShow=!isShow"> toggle</button>
+        <transition name="fade">
+            <p v-show="isShow"class="xxx-enter">hello</p>
+        </transition>     
+    </div>
+
+    <div id="test2">
+        <button @click="isShow=!isShow"> toggle</button>
+        <transition name="fade2">
+            <p v-show="isShow"class="xxx-enter">hello</p>
+        </transition>     
+    </div>
+
+</body>
+<script type="text/javascript" src="./js/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:"#test1",
+        data(){
+            return{
+                isShow:true
+            }
+        }
+    }) 
+
+    new Vue({
+        el:"#test2",
+        data(){
+            return{
+                isShow:true
+            }
+        }
+    }) 
+</script>
+</html>

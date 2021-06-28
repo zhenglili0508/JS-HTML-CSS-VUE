@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #areaDiv{
+            width: 200px;
+           height: 100px;
+           background-color: cadetblue;
+        }
+        #showMsg{
+            width: 200px;
+           height: 50px;
+           background-color: rgb(90, 181, 223);
+        }
+    </style>
+    <script>
+        //当鼠标在areaDiv中移动时，在showMsg中来显示鼠标的坐标
+
+        window.onload= function () {
+            var areaDiv = document.getElementById("areaDiv")
+            var showMsg = document.getElementById("showMsg")
+
+            areaDiv.onmousemove= function (event) {
+                // if(!event){
+                //     event=window.event
+                // }
+                event = event||window.event
+                var x = event.clientX
+                var y = event.clientY
+                showMsg.innerHTML= "x="+x+",y="+y;
+              
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="areaDiv"></div>
+    <div id="showMsg"></div>
+</body>
+</html>

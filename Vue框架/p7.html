@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .aClass{
+            color: red;
+        }
+        .bClass{
+            color:blue;
+        }
+        .cClass{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="demo">
+    <h1>1.class绑定：：class=‘xxx’</h1>
+    <p class="cClass"  :class="classname">xxx是字符串</p>
+    <p :class="{aClass:isA , bClass:isB}">xxx是对象</p>
+    <p :class="['aClass' , 'cClass']">xxx是数组</p>
+
+    <h2>2.style绑定</h2>
+    <!-- 内部是键值对   所有现在我们用 对象来表示-->
+   <!-- 切记 js 中 是没有  font-size的   应该写成fontSize-->
+        
+    <p :style="{ color: activateColor, fontSize:fontSize+'px',}" >实现style="color: deeppink; font-size: 40px;</p>
+    <p style="color: deeppink; font-size: 40px;">属性！</p> 
+
+    <button @click = 'updata'>更新</button>
+   </div>
+
+
+</body>
+
+<script type="text/javascript" src="./js/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:"#demo",
+        data:{
+            classname:'aClass',
+            isA:true,
+            isB:false,
+            activateColor:'red',
+            fontSize:40
+        },
+        methods:{
+            updata(){
+                this.classname = 'bClass'
+                this.isA = false
+                this.isB = true
+                this.activateColor = 'deeppink'
+                this.fontSize =12
+            }
+        }
+
+
+    })
+</script>
+
+</html>

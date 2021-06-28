@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+            /*  开启绝对定位    */
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload= function(){
+            var box1=document.getElementById("box1")
+            document.onmousemove=function(event){
+                event = event||window.event
+                // var left= event.clientX
+                // var top = event.clientY
+
+                // var left= event.pageX
+                // var top = event.pageY    
+                // 但是这个方法 不适合 IE 8
+                
+                //因为以上方法不兼容    第三种方法  在div块上加上滚动条的距离  获取浏览器滚动条的距离   
+                //  下面只写了  top的    left的也是一样的呢 
+                var left= event.clientX
+                var top = event.clientY
+
+                // var st =  document.body.scrollTop    //chrome浏览器  认为滚动条是boby的
+                // var st = document.documentElement.scrollTop// 火狐浏览器  认为是 HTML的
+                var st =  document.body.scrollTop  || document.documentElement.scrollTop
+                box1.style.left = left +"px"
+                box1.style.top = top + st +"px"
+            }
+        }
+    </script>
+</head>
+<body style="height: 1000px;">
+    <div id="box1"> </div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+.clearfix::before,.clearfix::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+body{
+    height: 1530px;
+}
+.w{
+    width:1200px;
+    margin:auto;
+    background-color: rgb(122, 104, 101);
+}
+.header{
+    height: 750px;
+    background-color: rgb(252, 252, 252);
+}
+.logo{
+    height: 150px;
+    width:70% ;
+    /* background-color: rgb(29, 180, 97); */
+    float:left;
+    margin:  0px 15%;
+}
+.logo img{
+   float: left;
+   margin: 30px 40px 0px 40px;
+}
+.logo p{
+    font-size: 30px;
+    color:#0082E2;
+    font-weight:bold;
+}
+.logo .p1{
+  margin: 30px 0px 0px 20px;
+
+}
+.logo .p2{
+   margin-top:10px ;
+
+}
+.logo .shousuo{
+    float: right;
+    margin: -10px 50px;
+    width: 200px;
+    border: rgb(104, 104, 87) 2px solid;
+}
+
+.header .beijing{
+    height: 600px ;
+    background-color: yellow;
+    margin-top: 150px;
+}
+.header .big_img{
+    width: 100%;
+    height: 600px;
+}
+
+.header .diebu{
+    height: 30px;
+    width: 100%;
+    background-color: #045995;
+    float: left;
+    position: relative;
+    margin-top: -30px;
+    opacity: 0.8;  
+}
+/* 导航栏 */
+.daohang{
+    height: 50px;
+    background-color:#045995;
+  
+}
+.daohang ul{
+    margin-left: 90px;
+}
+.nav a{
+    margin-top: 1px;
+    margin-right: 40px;
+    float: left;
+    font-size: 25px ;
+    color: rgb(207, 205, 205);
+}
+.nav a:hover{
+    color: rgb(246, 243, 243);
+}
+
+/*content 开始  */
+.content{
+    height: 400px;
+    background-color:#f1680c ;
+}
+
+.content .jingwu{
+    margin: 20px 0px 0px 30px;
+    /* background-color: rgb(15, 226, 51); */
+    /* background-color:#2e578d ; */
+    width: 450px;
+    height: 315px;
+    float: left;
+    position:relative;
+}
+.content img{
+    margin-left: 20px;
+}
+.content .pointerDiv{
+    background-color: rgb(70, 67, 67);
+    width: 415px;
+    height: 25px;
+    position: absolute;
+    top: 246px;
+    left: 20px;
+    opacity: 0.6;
+}
+
+.content .pointerDiv a{
+    width: 10px;
+    height: 10px;
+    margin: 7px;
+    background-color: rgb(250, 250, 253);
+}
+.content .miaoshu_tu{
+    margin-top: -4px;
+    position: absolute;
+    left: 20px;
+    width: 415px;
+    height: 35px;
+    background-color: rgb(54, 99, 150);
+}
+.content .miaoshu_tu p{
+    margin-top: 7px;
+    height: 25px;
+   color:azure;
+   float: left;
+   margin-left:25px;
+   position: relative;
+}
+
+.xw_gg_dt_hd{
+    float: right;
+    margin: 20px 80px 0 0px;
+    width: 315px;
+    height: 307px;
+    background-color: rgb(54, 99, 150);
+}
+
+.xw_gg_dt_hd .zibiaoti p{
+    float: left;
+    margin-right: 45px;
+    color: rgb(226, 225, 225);
+}
+/*content 结束  */
+
+
+/*footer 开始  */
+.footer{
+    margin-top: 10px;
+    height: 250px;
+    background-color:#1a9f9c ;
+}
+
+.footer .jiaoshi_rukou{
+    width: 250px;
+    height: 30px;
+    background-color: #106667;
+    border-radius: 25px;
+    opacity: 0.7;
+}
+.footer .jiaoshi_rukou p{
+    margin: 5px 0px 0px;
+    color: rgb(200, 199, 199);
+
+}
+
+.footer .tu_link{
+    height: 180px;
+    background-color: rgb(201, 165, 136);
+}
+
+.footer .banquan{
+    height: 30px;
+}
+.footer .banquan p{
+    font-size: 14px;
+    color: rgb(202, 201, 201);
+    text-align: center;
+}

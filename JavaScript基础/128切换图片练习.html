@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btn1 = document.getElementById("btn1")
+            var btn2 = document.getElementById("btn2")
+            var img1 = document.getElementById("img1")
+            var imgArr = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"]
+            var index = 0
+            var timer
+
+        btn1.onclick = function(){
+            //开启定时器之前   我们关闭前一个定时器  避免越来越快
+            clearInterval(timer)
+
+            timer = setInterval(function(){
+                index++;
+                    // if( index>=imgArr.length){
+                    //     index= 0
+                    // }
+                    //同样的功能 
+                index = index%imgArr.length
+                img1.src = imgArr[index]
+            },1000)
+        }
+
+        btn2.onclick = function(){
+            clearInterval(timer)
+        }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn1">开始</button> 
+    <img id="img1" src="img/1.jpg"  style="width: 300px; height: 500px;"/>
+    <button id="btn2">暂停</button>
+</body>
+</html>

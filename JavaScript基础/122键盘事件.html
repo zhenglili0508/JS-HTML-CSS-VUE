@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    #box1 {         
+        width: 100px;
+       height: 100px;
+       background-color: lightcoral;
+       position:absolute;   
+       }
+   </style> 
+    <script>
+        window.onload= function(){
+            //键盘事件 
+            
+            // document.onkeydown = function(event){
+            //     event = event||window.event
+            //     if (event.keyCode==89 && event.ctrlKey){
+            //         alert("按下y和ctrl")
+            //     } 
+            // }
+            // document.onkeyup = function(){
+            //     // alert("松开")
+            // }
+            var input =  document.getElementsByTagName("input")[0];
+            input.onkeydown = function(event){
+               
+                //  在我们的文本框中输入内容 是 onkeydown的默认行为   可以false  让不返回
+                //return false
+               // alert(event.keyCode)    //  在中文状态下  数字是 229
+                if (event.keyCode>=48 && event.keyCode<=57){
+                    alert("sgfdjks")
+                    return false
+                }
+               
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- <div id = "box1"> </div> -->
+    <input type="text " />
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {         
+                 width: 100px;
+                height: 100px;
+                background-color: lightcoral;
+                position:absolute;
+        }
+       
+    </style>
+    <script>
+        window.onload = function(){
+          //  当鼠标滚轮向下滚动时，box1变长当滚轮向上滚动时，bo×1变短
+
+        var  box1 = document.getElementById("box1");
+        //绑定一个鼠标滚轮事件         火狐不认
+       
+         box1.onmousewheel = function(event){
+            //向下滚动时，box1变长   当滚轮向上滚动时，bo×1变短
+            //判断  滚轮的方向 
+            // 上 正    下负 
+            if(event.wheelDelta>0){
+                //向上
+                box1.style.height = box1.clientHeight - 10 +"px"
+            }  else{
+                //下
+                box1.style.height = box1.clientHeight + 100 +"px"  
+            }
+           // 当滚轮滚动时,如果浏览器有滚动条,滚动条会随之滚动，
+            return false
+          }
+
+        } 
+    </script>
+</head>
+<body>
+    <div id = "box1"> </div>
+</body>
+</html>

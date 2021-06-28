@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="target.html">
+
+        <fieldset>
+            <legend>用户个人信息</legend>
+            <label for="um">用户名</label>
+            <input id="um" type="text" name="username" >
+            <br>
+            密码<input type="password" name="key" >
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>个人爱好</legend>
+            性别<input type="radio" name="gender" value="male" >男
+            <input type="radio" name="gender" value="female" checked = "checked">女
+            <br>
+            爱好<input type="checkbox" name="hobby" value="zq">足球
+            <input type="checkbox" name="hobby" value="lq" checked = "checked">篮球
+            <input type="checkbox" name="hobby" value="ymq" checked = "checked">羽毛球
+            <input type="checkbox" name="hobby" value="ppq">乒乓球
+        </fieldset>
+        <br>
+        你喜欢的明星
+        <select name="star" multiple="multiple">
+            <optgroup label="女明星">
+                <option value="zly">赵丽颖</option>
+                <option value="sze">宋祖儿</option>
+                <option value="lss">刘诗诗</option>
+            </optgroup>
+            <optgroup label="男明星">
+                <option value="xz">肖战</option>
+                <option value="zs">周深</option>
+                <option value="hg">胡歌</option>
+            </optgroup>
+        </select>
+        
+        <br>
+        自我介绍<textarea name="info"></textarea><br>
+
+        
+        <br><input type="submit" value="提交">
+
+        <input type="reset" >
+
+        <input type="button"  value="单纯的按钮">
+        <br>
+        <button type="submit">提交</button>
+        <button type="reset">重置</button>
+        <button type="button">单纯的按钮</button>
+        
+    </form>
+</body>
+</html>

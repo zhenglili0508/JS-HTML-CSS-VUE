@@ -1,0 +1,43 @@
+/* 开头的注释是可以编译到CSS中的*/
+div {
+  width: 300px;
+}
+* {
+  margin: 1000px;
+  padding: cacl(100px +100);
+}
+.juzhong,
+#wrap .inner1,
+#wrap .inner2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+#wrap {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 1px solid;
+}
+#wrap .inner1 {
+  width: 200px;
+  height: 200px;
+  background-color: deeppink;
+}
+#wrap .inner2 {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  border: 1px solid black;
+}
+#wrap .sjx {
+  border-color: yellow transparent transparent transparent;
+}

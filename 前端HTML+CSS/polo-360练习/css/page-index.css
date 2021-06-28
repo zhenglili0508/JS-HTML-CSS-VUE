@@ -1,0 +1,265 @@
+/* 解决高度塌陷 */
+.clearfix::before,.clearfix::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* 编辑主页样式 */
+body{
+    height: 2000px;
+    background: url("../img/body-back-img.png") repeat-x;  
+}
+.w{
+    width: 940px;
+    margin:auto;
+    /* background-color: tomato; */
+}
+.header{
+    margin-top: 20px ;
+    padding-bottom: 40px;
+    /* background-color: aquamarine; */
+    overflow: auto;
+}
+.logo{
+    margin-left: 15px;
+    float: left;
+}
+/* 设置导航栏 */
+.nav{
+    float: right;
+    margin-top: 20px ;
+    margin-right: 40px;
+}
+.nav li{
+    border-left:#d6d6d6 2px dotted;
+    float: left;
+    padding:0 10px;
+    padding-bottom: 10px;
+}
+.nav a{
+    font-size: 15px;
+    color: #666;
+    text-decoration: none;
+}
+/* 设置导航中的小标题
+在chrome浏览器中字体最小支持到12px1-11都显示为12px
+但是现在好像已经解决了吧
+ */
+.nav p{
+    font-size:11px ;
+    color: #b7b7b7;
+}
+.nav a:hover{
+    color: wheat;
+    text-decoration: underline;
+}
+/* 头部 end */
+/* 图片的阴影   垂直的 */
+.banner{
+    position:relative;
+}
+.banner img{
+    box-shadow:0px 3px 10px rgb(88, 87, 87)
+}
+.pointerDiv a{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(233, 200, 195);
+    float: left;
+    margin-left: 4px;
+}
+.pointerDiv a:hover{
+    
+    background-color: red;
+}
+.pointerDiv{
+    /* 开启绝对定位      开启父元素的相对定位   就是banner的定位 */
+    position: absolute;
+    top: 278px;
+    left: 15px;
+}
+.content h1{
+    /*设置文字居中 */
+    text-align: center;
+    /* 设置字体   加粗 26 字体 */
+    font:bold 26px georgia;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    border-bottom: rgb(171, 172, 170) solid 2px;
+    margin-bottom: 40px;
+}
+.pl,.cs,.uc,.sc,.co,.nu{
+    width: 300px;
+    float: left;
+    /* background-color: yellow; */
+}
+.content{
+    /* background-color: violet; */
+    border-bottom:rgb(171, 172, 170) solid 2px;
+}
+.content .cs,.co {
+    margin: 0 20px;
+}
+.content h2{
+    color:#11719e ;
+    font:26px georgia;
+}
+.content .p1{
+    color: #8c8c8c;
+    font:12px georgia;
+}
+.content .imgdiv{
+    width: 299px;
+    height: 204px;
+    background: url(../img/imgdiv-bg.png)  no-repeat;
+    margin: 16px 0px 10px;
+    /* 水平居中 */
+    text-align: center;
+    /* 垂直居中 */
+    padding-top:8px;
+}
+.content .p2{
+    width: 292px;
+    color: #757474;
+    font: 17px georgia;
+    word-spacing: 3px;
+}
+.content .lm{
+    display: block;
+    width: 163px;
+    height: 40px;
+    background: url(../img/btn1.png) no-repeat;
+    text-decoration: none;
+    color: #016999;
+    font:15px/40px helvetica;
+    /* 水平  缩进 */
+    text-indent: 1em;
+    margin-bottom: 35px;
+    margin-top: 15px;
+}
+
+.sc,.co,.nu{
+    /* height: 500px; */
+    /* background-color: red; */
+}
+.contact h2{
+    margin: 45px 0px 10px;
+    color: #444;
+    font: 30px georgia;
+    border-bottom: 1px #d3d3d3 dashed;
+    margin-bottom: 20px;
+}
+.contact .txt{
+    width: 286px;
+    height: 33px;
+    border: rgb(172, 168, 168) 1px solid;
+    margin: 0px 0px 18px 0px;
+    padding: 0px 5px;
+}
+.contact .texta{
+    margin: 0px 0px;
+    padding: 5px 5px;
+    width: 286px;
+    height: 124px;
+    border: rgb(172, 168, 168) 1px solid;
+    overflow: auto;
+    /* 设置文本域不能调整大小  */
+    resize: none;
+}
+.contact .btn{
+    margin: 13px 0px 23px 0px;
+    float: left;
+    border: none;
+    display: block;
+    width: 163px;
+    height: 40px;
+    background: url(../img/btn1.png) no-repeat;
+    font-size: 20px;
+    color:  #016999;
+    text-align: left;
+    text-indent: 10px;
+}
+.sc .p3{
+    color: #444;
+    font:14px helvetica;
+}
+.sc .icon{
+    margin-top: 10px;
+}
+.sc a{
+    font-size: 0px;
+    margin-right: 8px;
+}
+.sc  h3{
+    margin: 28px 0px 4px;
+    color: #444;
+    font: 30px georgia;
+    border-bottom: 1px #d3d3d3 dashed;
+    margin-bottom: 16px;
+}
+.contact .btn1{
+    margin: 0px 0px 23px 0px;
+    float: left;
+    border: none;
+    display: block;
+    width: 163px;
+    height: 40px;
+    background: url(../img/btn1.png) no-repeat;
+    font-size: 20px;
+    color:  #016999;
+    text-align: left;
+    text-indent: 10px;
+    /* 设置鼠标移入按钮时的样式 */
+    cursor: pointer;
+}
+.nu img{
+    float: left;
+    margin-right: 10px;
+}
+
+.nu p{
+    /* background-color: skyblue; */
+    color: #444;
+    font: 14px georgia;
+    /* 完成上半部分   图片的浮动依然是个大问题  因为P 没有高度 */
+   
+    height: 58px;
+    border-bottom: 1px #d3d3d3 dashed;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+}
+/* .contact{
+    background-color: tomato;
+} */
+.footer{
+    margin: 20px;
+    height: 203px;
+    background-color: #333;
+    border-top:#4c4c4c 10px solid;
+    border-bottom:#4c4c4c  5px solid;
+    font-size: 13px;
+    color:  rgb(151, 149, 149);
+}
+.footer .w{
+    padding: 20px 25px 0px 10px;
+}
+.footer a{
+    color: rgb(151, 149, 149);
+    text-decoration: none;
+}
+.footer a:hover{
+    color: rgb(211, 211, 211);
+    text-decoration:#333 1px solid;
+    text-decoration: underline;
+}
+
+.footer .right_p{
+    float: right;
+}
+.footer p{
+    /* background-color: aquamarine; */
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-bottom: 14px;
+}

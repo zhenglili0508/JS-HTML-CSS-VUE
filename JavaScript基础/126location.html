@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         window.onload = function(){
+             //alert(location)
+                var btn1 = document.getElementById("btn1")
+                btn1.onclick = function(){
+                //   location = "http://www.baidu.com"
+                 //   location.assign("http://www.baidu.com")
+                 //location.reload(true)
+                 location.replace("http://www.baidu.com")
+                }
+            }
+    </script>
+</head>
+<body>
+    <button id = "btn1">点我一下</button>
+    <h3>location</h3>
+    <a href="test1.html">前进 去test1</a>
+</body>
+</html>
