@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>防抖的理解</title>
+</head>
+<body>
+    <input type="text" id="input"></input>
+    <script>
+        // var input = document.getElementById("input")
+        // function debounce(delay,value){
+        //     setTimeout(() => {
+        //         console.log(value)
+        //     }, delay);
+        // }
+        // input.addEventListener('keyup',function(e){
+        //     debounce(1000,e.target.value)
+        // })
+        var input = document.getElementById("input")
+
+        function debounce(delay,callback){
+            let timer  //定义变量存储要删除的定时器
+            return function (value) {
+                clearTimeout(timer) //如果再次进入的时候有定时器  就删除 
+                timer = setTimeout(() => {  
+                    callback(value)
+                }, delay);
+            }
+        }
+        
+        function fn(value) {
+            console.log(value) 
+        }
+
+        var debounceFunc = debounce(1000,fn)   //执行后  debounce(1000)return的就是定时器函数 
+        input.addEventListener('keyup',function(e){
+            debounceFunc(e.target.value)
+        })
+
+    </script>
+</body>
+</html>
