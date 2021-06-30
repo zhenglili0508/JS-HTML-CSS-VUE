@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES_数组新特性.html</title>
+</head>
+<body>
+    <script>
+        // 数组方法  array.includes
+        // var animals = ["dog",'cat',"hamster"]
+        // function printAnimals(animal) {
+        //     if(animals.includes(animal)){
+        //         console.log(animal)
+        //     }
+        // }
+        // console.log(printAnimals("cat"))
+
+        // 提前退出  提前返回
+        // function printAnimalDetails(animal) {
+        //     var result = null
+        //     if(animal){
+        //         if(animal.type){
+        //             if(animal.name){
+        //                 if(animal.gender){
+        //                     result = `${animal.name} is a ${animal.gender} ${animal.type}`
+        //                 }else{
+        //                 result = 'no animal gender'
+        //                 }
+        //             }else{
+        //                 result = 'no animal name'
+        //             }
+        //         }else{
+        //             result = 'no animal type'
+        //         }
+        //     }else{
+        //         result = 'no animal'
+        //     }
+        //     return result
+        // }
+
+        // console.log(printAnimalDetails())
+        // console.log(printAnimalDetails({name:'wangcai',type:"dog"}))
+        // console.log(printAnimalDetails({name:'wangcai',gender:"female"}))
+        // console.log(printAnimalDetails({name:'wangcai',gender:"female",type:"dog"})) //wangcai is a female dog
+        // const printAnimalDetails = ({type,name,gender} = {})=>{
+        //     if(!type && !name &&!gender)  return "无动物"
+        //     if(!type) return 'no animal type'
+        //     if(!name) return 'no animal name'
+        //     if(!gender) return 'no animal gender'
+        //     return`${name} is a ${gender} ${type}`
+        // }
+
+        // console.log(printAnimalDetails())
+        // console.log(printAnimalDetails({name:'wangcai',type:"dog"}))
+        // console.log(printAnimalDetails({name:'wangcai',gender:"female"}))
+        // console.log(printAnimalDetails({name:'wangcai',gender:"female",type:"dog"})) //wangcai is a female dog
+
+        // 对象字面量  代替switch 语句
+        // function printFruits(color) {
+        //     switch(color){
+        //         case 'red': return['apple']
+        //         case 'yellow': return['banana']
+        //         default : return []
+        //     }
+        // }
+
+        // console.log(printFruits('yellow'))
+
+        // var fruitColoe = {
+        //     red:['apple'],
+        //     yellow:['banana']
+        // }
+
+        // function printFruits(color) {
+        //     return fruitColoe[color] || []
+        // }
+
+        // console.log(printFruits("red"))
+
+        // 默认参数结构
+        
+        
+
+    </script>
+</body>
+</html>

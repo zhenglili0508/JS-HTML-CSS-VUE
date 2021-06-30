@@ -9,13 +9,25 @@
 <body>
     <button id="button"> 点击触发事件</button>
     <script>
-        function JieLiu() {
-            setTimeout(() => {
-                console.log("点击成功")
-            }, 1000);
-            
+        function JieLiu(func) {
+            let timer
+            return function zzzll(){
+                // console.log("00000")
+                if(!timer){
+                    // console.log("111")
+                    timer = setTimeout(() => {
+                        func()
+                    }, 500); 
+                }
+            }
         } 
-        document.getElementById('button').onclick = JieLiu
+
+        function func(){
+            console.log("节流点击成功")
+        }
+        document.getElementById('button').onclick = JieLiu(func)
+
+
     </script>
 </body>
 </html>
