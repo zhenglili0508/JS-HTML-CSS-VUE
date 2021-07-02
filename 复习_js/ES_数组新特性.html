@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        // 数组方法  array.includes
+    // 数组方法  array.includes
         // var animals = ["dog",'cat',"hamster"]
         // function printAnimals(animal) {
         //     if(animals.includes(animal)){
@@ -17,7 +17,7 @@
         // }
         // console.log(printAnimals("cat"))
 
-        // 提前退出  提前返回
+    // 提前退出  提前返回
         // function printAnimalDetails(animal) {
         //     var result = null
         //     if(animal){
@@ -57,7 +57,7 @@
         // console.log(printAnimalDetails({name:'wangcai',gender:"female"}))
         // console.log(printAnimalDetails({name:'wangcai',gender:"female",type:"dog"})) //wangcai is a female dog
 
-        // 对象字面量  代替switch 语句
+    // 对象字面量  代替switch 语句
         // function printFruits(color) {
         //     switch(color){
         //         case 'red': return['apple']
@@ -79,9 +79,54 @@
 
         // console.log(printFruits("red"))
 
-        // 默认参数结构
+    // 默认参数结构
+         
+        // var obj1 = {
+        //     name:'xxx'
+        // }
+        // var obj2 = {
+        //     name:'yyy'
+        // }
+
+        // var obj3 = {
+        //     [obj1]:'22',
+        //     [obj1]:'11',
+        // }
+
+        // console.log(obj3)
         
-        
+
+        // const fruitsColor = new Map().set('red',['apple']).set('yellow',['banana'])
+
+        // function printFruits(color) {
+        //     return fruitsColor.get(color) || []
+        // }
+
+        // console.log(printFruits('red'))
+
+    // array.some  array.every  
+
+    // 需求 ： 检测是否所有的水果都是红色 
+    const fruits = [
+        {name:'apple', color:'red'},
+        {name:'banana', color:'yellow'}
+    ]
+    
+    function testeVery() {
+        var isAllRed = fruits.every(f => f.color == 'red')
+        console.log(isAllRed)  //false
+    }
+
+    testeVery()
+
+    // 需求 ： 检测是否有水果颜色是 红色 
+    function testSome() {
+        var isAllRed = fruits.some(f => f.color == 'red')
+        console.log(isAllRed) //ture 
+    }
+    testSome()
+
+
 
     </script>
 </body>

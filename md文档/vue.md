@@ -249,15 +249,86 @@ console.log(printAnimalDetails())
 
 ## 4.默认参数结构
 
+ 隐式调用 tostring的方法    
 
+```
+  var obj1 = {
+            name:'xxx'
+        }
+        var obj2 = {
+            name:'yyy'
+        }
+
+        var obj3 = {
+            [obj1]:'22',
+            [obj1]:'11',
+        }
+
+        console.log(obj3)  // {[object Object]: "11"}
+```
+
+用map的方法 
+
+```
+        const fruitsColor = new Map().set('red',['apple']).set('yellow',['banana'])
+
+        function printFruits(color) {
+            return fruitsColor.get(color) || []
+        }
+
+        console.log(printFruits('red'))
+```
+
+构造的数据结构如下 ：   键值对！
+
+```
+{"red" => Array(1), "yellow" => Array(1)}
+
+0: {"red" => Array(1)}
+1: {"yellow" => Array(1)}
+```
 
 ## 5.用上 array.some  array.every
 
+```
+ // 需求 ： 检测是否所有的水果都是红色 
+    const fruits = [
+        {name:'apple', color:'red'},
+        {name:'banana', color:'yellow'}
+    ]
+    
+    function testeVery() {
+        var isAllRed = fruits.every(f => f.color == 'red')
+        console.log(isAllRed)  //false
+    }
+
+    testeVery()
+
+    // 需求 ： 检测是否有水果颜色是 红色 
+    function testSome() {
+        var isAllRed = fruits.some(f => f.color == 'red')
+        console.log(isAllRed) //ture 
+    }
+    testSome()
+```
 
 
 
+# 瀑布流 
+
+定位后确定浏览器显示区域内，一行能放多少列图片盒子。
+
+- 页面的宽度
+  ●获取图片盒子的宽度
+  ●显示的列数=页面宽度/图片盒子宽度. column = pageWidth / itemWidth
+
+  
 
 
+
+# **刷题部分：**
+
+# js 实现 链表
 
 
 
