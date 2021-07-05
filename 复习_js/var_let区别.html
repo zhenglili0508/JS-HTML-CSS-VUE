@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var_let_对于循环变量的区别</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        var a = 1
+        let a = 2 
+        console.log(a) //Uncaught SyntaxError: Identifier 'a' has already been declared
+
+        for(let i = 0 ;i<5;i++){
+            console.log(i)
+        }
+        console.log(i)  //err
+        
+        const arr1 = [1,2,3,4,5]
+        arr1[3] = 100 
+        console.log(arr1) //[ 1, 2, 3, 100, 5 ]
+
+
+        // var arrLi = document.getElementsByTagName('li')
+        // for(var i=0;i<arrLi.length;i++){
+        //     arrLi[i].onclick = function () {
+        //         console.log(arrLi[i])// undefined 
+        //     }
+        // }
+        var arrLi = document.getElementsByTagName('li')
+        for(let i=0;i<arrLi.length;i++){
+            arrLi[i].onclick = function () {
+                console.log(arrLi[i])
+            }
+        }
+
+    </script>
+</body>
+</html>

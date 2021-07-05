@@ -1,0 +1,88 @@
+<#--
+说明：
+1.放置此导航的页面需要加入DOCTYPE声明，否则不能正常使用，比如在页面模板的最上方放置下面一句话
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+2.您可以参照样式中的说明修改具体的样式， 如字体大小，颜色，背景色等
+3.此导航支持 IE6, IE7, IE8... 以及 FireFox
+4.默认设置为显示三层，可配置
+-->
+<style>
+
+</style>
+
+<table>
+    <tr>
+        <td>
+            <div class="nav_menustyle_1_1">
+                <ul>
+                <#list list_menu as menu><#--1级导航列表-->
+                    <li><a href="${menu.url}" ${menu.target}>${menu.showTitle}<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <#if menu.hasSubMenu><#--如果有子导航-->
+                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                    <ul>
+                        <#list menu.list_subMenu as menu><#--2级导航列表-->
+                        <li><a href="${menu.url}" ${menu.target}>${menu.showTitle}<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <#if menu.hasSubMenu><#--如果有子导航-->
+                        <!--[if lte IE 6]><table><tr><td><![endif]-->
+                        <ul>
+                            <#list menu.list_subMenu as menu><#--3级导航列表-->
+                            <li><a href="${menu.url}" ${menu.target}>${menu.showTitle}<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <#if menu.hasSubMenu><#--如果有子导航-->
+                            <!--[if lte IE 6]><table><tr><td><![endif]-->
+                            <ul>
+                                <#list menu.list_subMenu as menu><#--4级导航列表-->
+                                <li><a href="${menu.url}" ${menu.target}>${menu.showTitle}<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                                <#if menu.hasSubMenu><#--如果有子导航-->
+                                <!--[if lte IE 6]><table><tr><td><![endif]-->
+                                <ul>
+                                    <#list menu.list_subMenu as menu><#--5级导航列表-->
+                                    <li><a href="${menu.url}" ${menu.target}>${menu.showTitle}<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                                    <#if menu.hasSubMenu><#--如果有子导航-->
+                                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                                    <ul>
+                                        <#list menu.list_subMenu as menu><#--6级导航列表-->
+                                        <li><a href="${menu.url}" ${menu.target}>${menu.showTitle}<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                                        </li>
+                                        </#list>
+                                    </ul>
+                                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                                    <#else>
+                                    <!--[if lte IE 6]></a><![endif]-->
+                                    </#if>
+                                    </li>
+                                    </#list>
+                                </ul>
+                                <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                                <#else>
+                                <!--[if lte IE 6]></a><![endif]-->
+                                </#if>
+                                </li>
+                                </#list>
+                            </ul>
+                            <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                            <#else>
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </#if>
+                            </li>
+                            </#list>
+                        </ul>
+                        <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                        <#else>
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </#if>
+                        </li>
+                        </#list>
+                    </ul>
+                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                    <#else>
+                    <!--[if lte IE 6]></a><![endif]-->
+                    </#if>
+                    </li>
+                </#list>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
