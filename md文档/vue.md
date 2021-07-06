@@ -470,3 +470,186 @@ for循环中用  let
 
 反复定义用 var 
 
+
+
+# 排序函数的应用 sort
+
+```
+let nums = [-1,0,1,2,-4,-3,0,4]
+
+let num2 = nums.sort()
+console.log(nums) //[-1, -3, -4, 0, 0,  1,  2, 4]
+
+let num1 = nums.sort(function (a,b) {
+    return a-b
+})   //正确的对nums的排序 
+console.log(nums) //[-4, -3, -1, 0, 0,  1,  2, 4]
+console.log(num2,num1) //[ -4, -3, -1, 0,0,  1,  2, 4] [ -4, -3, -1, 0,0,  1,  2, 4]
+
+```
+
+使用排序算法的时候  调用改方法会改变原数组的顺序 
+
+
+
+# js数组的基本操作
+
+- js中统计数组中元素出现的个数
+
+  ```
+  function getNumCount(arr) {
+      return arr.reduce((pre,cur)=>{
+          console.log(pre,cur)
+          if(cur in pre){
+              pre[cur]++
+          }else{
+              pre[cur] = 1
+          }
+          return  pre
+      },{})
+  }
+  console.log(getNumCount([1,2,2,2,3,4,5,5])) 
+  ```
+
+  - js 数组去重
+
+    ```
+    function unique(arr) {
+        return arr.reduce((pre,cur)=>{
+            console.log(pre,cur)
+            if(!pre.includes(cur)){
+                pre.push(cur)
+            }
+            return  pre
+        },[])
+    }
+    console.log(unique([1,2,2,2,3,4,5,5])) 
+    ```
+
+    注意 判断数组中是否有固定的某个数的方式
+
+    返回 true 或者false的是 array.includes(searcElement[,fromIndex])  ！！！！
+
+    - 1. 判断数组中是否存在某个值，如果存在返回true，否则返回false
+
+      ```
+      var arr=[1,2,3,4];
+      if(arr.includes(3))
+          console.log("存在");
+      else
+          console.log("不存在");
+      ```
+
+    - 2 array.indexOf   此方法判断数组中是否存在某个值，如果存在，则返回数组元素的下标，否则返回-1。
+
+      ```
+      var arr=[1,2,3,4];
+      var index=arr.indexOf(3); 
+      console.log(index); // 2  返回的是下标！！
+      var index1=arr.indexOf(7); 
+      console.log(index1); // -1
+      ```
+
+    - 3：array.find(callback[,thisArg])
+
+      返回数组中满足条件的第一个元素的值，如果没有，返回undefined
+
+      ```
+      var arr=[1,2,3,4];
+      var result = arr.find(item =>{
+          return item > 9
+      });
+      console.log(result); //undefined
+      
+      ```
+
+    - array.findeIndex(callback[,thisArg])
+
+      返回数组中满足条件的第一个元素的下标，如果没有找到，返回`-1`
+
+      ```
+      var arr=[1,2,3,4];
+      var result = arr.findIndex(item =>{
+          return item > 3
+      });
+      console.log(result);
+      ```
+
+    - ```
+      var arr=[1,2,3,4];
+      var result = arr.findIndex(item =>{
+          return item > 3
+      });
+      console.log(result);
+      ```
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+    
+
+- 遍历数组
+
+  简单的 for  forEach
+
+  ```
+  var num = [1,3,4,5,7,9]
+  for(let i=0; i<num.length;i++){
+       console.log(num[i])
+  }
+  console.log("下面是用的forEach函数")
+  num.forEach(element => {
+      console.log(element)
+  });
+  ```
+
+- 过滤数组
+
+  *function(currentValue, index,arr)*    
+
+  | *currentValue* | 必须。当前元素的值           |
+  | -------------- | ---------------------------- |
+  | *index*        | 可选。当前元素的索引值       |
+  | *arr*          | 可选。当前元素属于的数组对象 |
+
+  ````
+  let arr = [56, 15, 48, 3, 7];
+  let newArr = arr.filter((currentValue)=>{    // 参数的设置  currentValue 是当前的值 
+      return currentValue%2===0
+  })
+  console.log(newArr)
+  ````
+
+- 条件筛选
+
+  for 循环   filter 都行吧 
+
+- 条件求和
+
+  同上
+
+- 最值筛选
+
+  法子  可多了  不局限 
+
+  ```
+  var a=[1,3,9,8,5];
+  var i,result=0;
+  for(i=0;i<a.length;i++)
+  {
+  result=Math.max(result,a[i]);
+  }
+  console.log(result);
+  ```
+
+  
+
