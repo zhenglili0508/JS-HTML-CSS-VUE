@@ -16,7 +16,7 @@ var isValid = function(s) {
             }
         }
     }
-    
+
     if(stack.length != 0){
         return false
     }
@@ -24,6 +24,7 @@ var isValid = function(s) {
 }
 
 let s = "(]"
-console.log(isValid(s))
+console.log(isValid())
 
-//stack  栈！
+
+//stack  栈

@@ -326,9 +326,9 @@ console.log(printAnimalDetails())
 
 
 
-# **刷题部分：**
+# **刷题部分：**基础知识
 
-# js 实现 链表
+## js 实现 链表
 
 单链表是表示一系列节点的数据结构，其中每个节点指向链表中的下一个节点。 相反，双向链表具有指向其前后元素的节点。
 
@@ -357,7 +357,7 @@ console.log(printAnimalDetails())
 
 
 
-# var/let/const的区别及使用场景
+## var/let/const的区别及使用场景
 
 var 
 
@@ -472,7 +472,7 @@ for循环中用  let
 
 
 
-# 排序函数的应用 sort
+## 排序函数的应用 sort
 
 ```
 let nums = [-1,0,1,2,-4,-3,0,4]
@@ -492,7 +492,7 @@ console.log(num2,num1) //[ -4, -3, -1, 0,0,  1,  2, 4] [ -4, -3, -1, 0,0,  1,  2
 
 
 
-# js数组的基本操作
+## js数组的基本操作
 
 - js中统计数组中元素出现的个数
 
@@ -651,5 +651,140 @@ console.log(num2,num1) //[ -4, -3, -1, 0,0,  1,  2, 4] [ -4, -3, -1, 0,0,  1,  2
   console.log(result);
   ```
 
-  
+
+# 力扣刷题：
+
+### **49 题 字母 异位分组**
+
+// 给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+
+ ```
+ 输入: ["eat", "tea", "tan", "ate", "nat", "bat"]
+ 输出:
+ [
+   ["ate","eat","tea"],
+   ["nat","tan"],
+   ["bat"]
+ ]
+ ```
+
+解题思路 ：
+
+1. 非暴力 但非最优      
+
+   先把每一个元素都排序      然后匹配相同就好了
+
+2. 优秀解法 
+
+```
+var groupAnagrams = function(strs) {
+    if(strs.length === 0){
+        return []
+    }
+    let map = new  Map()
+    for(const str of strs){
+        var temple =Array(26).fill(0)
+        for(let i=0;i<str.length;i++){
+            let asci_i = str.charCodeAt(i) - 97
+            temple[asci_i]++
+          
+        }
+
+        const key = temple.join(".")
+        console.log(key)
+
+        if(map.has(key)){
+            map.set(key,[...map.get(key),str])
+        }else{
+            map.set(key,[str])
+        }
+    }
+
+    const result = []
+    for(const arr of map){
+        result.push(arr[1])
+    }
+
+    return result
+}; 
+
+let strs =["bdddddddddd","bbbbbbbbbbc"]
+
+// let strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+// let strs = ["eat", "tea"]
+console.log(groupAnagrams(strs))
+```
+
+### 54 螺旋矩阵
+
+给你一个 `m` 行 `n` 列的矩阵 `matrix` ，请按照 **顺时针螺旋顺序** ，返回矩阵中的所有元素
+
+![img](vue.assets/spiral1.jpg)
+
+```
+输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
+输出：[1,2,3,6,9,8,7,4,5]
+```
+
+```
+var spiralOrder = function(matrix) {
+    if(matrix.length ==0){
+        return []
+    }
+
+    let left = 0,top=0,bottom=matrix.length-1,right=matrix[0].length-1
+
+    let result = []
+    direction = "right"
+
+    while(left<=right && top<=bottom){
+        if(direction == 'right'){
+            for(let i=left;i<=right;i++){
+                result.push(matrix[top][i])
+            }
+            top++
+            direction = 'bottom'
+        }
+        else if(direction == 'bottom'){
+            for(let i=top;i<=bottom;i++){
+                result.push(matrix[i][right])
+            }
+            right--
+            direction = 'left'
+        }
+        else if(direction == 'left'){
+            for(let i=right;i>=left;i--){
+                result.push(matrix[bottom][i])
+            }
+            bottom--
+            direction = 'top'
+        }
+        else if(direction == 'top'){
+            for(let i=bottom;i>=top;i--){
+                result.push(matrix[i][left])
+            }
+            left++
+            direction = 'right'
+        }
+    }
+    return result
+};
+
+let matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+console.log(spiralOrder(matrix))
+```
+
+### 55 跳跃游戏
+
+给定一个非负整数数组 `nums` ，你最初位于数组的 **第一个下标** 。
+
+数组中的每个元素代表你在该位置可以跳跃的最大长度。
+
+判断你是否能够到达最后一个下标。
+
+示例 1：
+
+输入：nums = [2,3,1,1,4]
+输出：true
+解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。
 
