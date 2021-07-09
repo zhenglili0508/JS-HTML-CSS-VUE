@@ -4,7 +4,6 @@ var spiralOrder = function(matrix) {
     }
 
     let left = 0,top=0,bottom=matrix.length-1,right=matrix[0].length-1
-    // console.log(right,bottom)
 
     let result = []
     direction = "right"

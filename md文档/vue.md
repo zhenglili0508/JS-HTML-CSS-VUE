@@ -788,3 +788,167 @@ console.log(spiralOrder(matrix))
 输出：true
 解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。
 
+##### ！！！ 动态规划
+
+ ```
+ var canJump = function(nums) {
+   if(nums.length==1)return false
+   
+   const dp = Array(nums.length-1).fill(false)
+   console.log(dp)
+ 
+   dp[0] = true
+ 
+   for(let i=1 ;i<nums.length;++i){
+       for(let j=i-1;j>=0;--j){
+           if(!dp[j])continue
+           if(nums[j]< i-j) continue
+           dp[i]=true
+           break
+       }
+   }
+   return dp[nums.length-1]
+ 
+ };
+ 
+ // let nums = [2,3,1,1,4]
+ let nums = [3,2,1,0,4]
+ console.log(canJump(nums))
+ ```
+
+### 56合并区间
+
+以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。
+
+思路 ：先给所有的区间排序   然后 当一个区间的前一个值等与小于前一个区间   那就说明有重复的区域
+
+```
+var merge = function(intervals) {
+    if(intervals.length<2) return intervals
+
+    intervals.sort(function (a,b) {
+        return a[0]-b[0]
+    })
+
+    let curr = intervals[0]
+    let result = []
+    
+    for(let i=1; i<intervals.length; i++){
+        if(curr[1]>=intervals[i][0]){
+            curr[1] = Math.max(curr[1],intervals[i][1])
+        }else{
+            result.push(curr)
+            curr = intervals[i]
+        }
+    }
+
+    result.push(curr)
+    return result
+};
+
+intervals = [[1,3],[2,6],[8,10],[15,18]]
+console.log(merge(intervals))
+```
+
+### 62. 不同路径
+
+一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。问总共有多少条不同的路径？
+
+![img](vue.assets/robot_maze.png)
+
+```
+输入：m = 3, n = 7
+输出：28
+```
+
+##### ！！！动态规划
+
+```
+var uniquePaths = function(m, n) {
+    let memo = Array()
+
+    for(let i=0;i<m;i++){
+        memo.push([])
+    }
+
+    for(let row=0;row<m;row++){
+        memo[row][0] = 1
+    }
+    for(let col=0;col<n;col++){
+        memo[0][col] = 1
+    }
+
+    for(let row=1 ;row<m;row++){
+        for(let col=1 ; col<n; col++){
+            memo[row][col] = memo[row-1][col]+memo[row][col-1]
+        }
+    }
+    return memo[m-1][n-1]
+};
+
+const m = 3, n = 7
+console.log(uniquePaths(m,n))
+```
+
+
+
+### 66 加一
+
+给定一个由 整数 组成的 非空 数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数 0 之外，这个整数不会以零开头。
+
+```
+输入：digits = [1,2,3]
+输出：[1,2,4]
+解释：输入数组表示数字 123。
+```
+
+```
+var plusOne = function(digits) {
+    for(let i=digits.length-1; i>=0; i--){
+        if(digits[i]!=9){
+            digits[i]++
+            return digits
+        }else{
+            digits[i] = 0
+        }
+    }
+    const result  = [1,...digits]
+    //const result  = [1].concat(digits)
+    return result
+};
+let digits = [9,9]
+console.log(plusOne(digits))
+```
+
+### 70 爬楼梯
+
+假设你正在爬楼梯。需要 *n* 阶你才能到达楼顶。
+
+每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+
+**注意：**给定 *n* 是一个正整数。
+
+```
+输入： 3
+输出： 3
+解释： 有三种方法可以爬到楼顶。
+1.  1 阶 + 1 阶 + 1 阶
+2.  1 阶 + 2 阶
+3.  2 阶 + 1 阶
+```
+
+```
+var climbStairs = function(n) {
+    let memo = Array(n+1)
+    memo[0] = 1
+    memo[1] = 1
+    for(let i=2; i<n+1; i++){
+        memo[i] = memo[i-1] + memo[i-2]
+    }
+    return memo[n]
+};
+
+let n = 2
+console.log(climbStairs(n))
+```
+
