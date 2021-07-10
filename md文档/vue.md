@@ -952,3 +952,156 @@ let n = 2
 console.log(climbStairs(n))
 ```
 
+### 930. 和相同的二元子数组
+
+给你一个二元数组 `nums` ，和一个整数 `goal` ，请你统计并返回有多少个和为 `goal` 的 **非空** 子数组。
+
+**子数组** 是数组的一段连续部分。
+
+输入：nums = [1,0,1,0,1], goal = 2
+输出：4
+解释：
+有 4 个满足题目要求的子数组：[1,0,1]、[1,0,1,0]、[0,1,0,1]、[1,0,1]
+
+```
+var numSubarraysWithSum = function(nums, goal) {
+    let sum = 0
+    let result = 0
+    let preSum = []    
+    for(let i = 0 ; i<nums.length+1 ;i++){
+        preSum[i] = sum
+        sum += nums[i]
+        for(let j =0 ;j<i ;j++){
+            if(preSum[i]-preSum[j] == goal){
+                result +=1
+            }
+        }
+    }
+    return result
+};
+
+let nums = [0,0,0,0,0], goal = 0
+console.log(numSubarraysWithSum(nums,goal))
+```
+
+### 17.10. 主要元素
+
+数组中占比超过一半的元素称之为主要元素。给你一个 整数 数组，找出其中的主要元素。若没有，返回 -1 。请设计时间复杂度为 O(N) 、空间复杂度为 O(1) 的解决方案。
+
+```
+输入：[1,2,5,9,5,9,5,5,5]
+输出：5
+```
+
+```
+var majorityElement = function(nums) {
+    if(nums.length == 0) return 0
+    if(nums.length == 1) return nums[0]
+    let map = new Map()
+    let maxNum = Math.ceil(nums.length/2) , key = 0
+    for(let i = 0 ; i<nums.length ; i++){
+        key = nums[i]
+        if(map.has(key)){
+            map.set(key, map.get(key) + 1)
+            if(map.get(key)>=maxNum){
+                return key
+            }
+        }else{
+            map.set(key,1)
+        }
+    }
+    return -1
+};
+
+let nums = [1,2,5,9,5,9,5,5,5]
+console.log(majorityElement(nums))
+```
+
+### 704 二分查找
+
+```
+输入: nums = [-1,0,3,5,9,12], target = 9
+输出: 4
+解释: 9 出现在 nums 中并且下标为 4
+```
+
+```
+var search = function(nums, target) {
+    
+    let left = 0 ,right = nums.length -1
+    let mid = 0
+    while(left<=right){
+        mid = Math.floor((right+left)/2)
+        if(nums[mid] == target){
+            return mid
+        }else if(nums[mid] < target){
+            left = mid+1
+        }else if(nums[mid] > target){
+            right = mid-1
+        }
+    }
+    return -1
+};
+
+let nums = [5], target = 5
+console.log(search(nums,target))
+```
+
+### 34. 在排序数组中查找元素的第一个和最后一个位置
+
+给定一个按照升序排列的整数数组 `nums`，和一个目标值 `target`。找出给定目标值在数组中的开始位置和结束位置。
+
+如果数组中不存在目标值 `target`，返回 `[-1, -1]`。
+
+```
+输入：nums = [5,7,7,8,8,10], target = 8
+输出：[3,4]
+```
+
+```
+var searchRange = function(nums, target) {
+    const findLeft =function (nums,target){
+        let left = 0 ,right = nums.length -1
+        let mid = 0
+    
+        while(left<=right){
+            mid = Math.floor((right+left)/2)
+            if(nums[mid] == target){
+                right = mid-1
+            }else if(nums[mid] < target){
+                left = mid+1
+            }else if(nums[mid] > target){
+                right = mid-1
+            }
+        }
+        return left
+    }
+
+    let result = new Array(2)
+    if(findLeft(nums,target)>=nums.length || nums[findLeft(nums,target)]!=target) {
+        return [-1,-1]
+    }
+    else{
+        result=[findLeft(nums,target),findLeft(nums,target+1)-1]
+    }
+
+    return result
+};
+
+let nums = [5,7,7,8,8,10], target = 8
+console.log(searchRange(nums,target))
+```
+
+73 矩阵置0
+
+给定一个 `*m* x *n*` 的矩阵，如果一个元素为 **0** ，则将其所在行和列的所有元素都设为 **0** 。请使用 **[原地](http://baike.baidu.com/item/原地算法)** 算法**。**
+
+![img](vue.assets/mat1.jpg)
+
+```
+输入：matrix = [[1,1,1],[1,0,1],[1,1,1]]
+输出：[[1,0,1],[0,0,0],[1,0,1]]
+```
+
+
+
