@@ -1103,5 +1103,131 @@ console.log(searchRange(nums,target))
 输出：[[1,0,1],[0,0,0],[1,0,1]]
 ```
 
+思路：
 
+```
+var setZeroes = function(matrix) {
+    let firstColHasZero = []
+    let firstRowHasZero = []
+    for(let i=0;i<matrix.length;i++){  //行数 
+        if(matrix[i][0]==0){
+            firstRowHasZero.push(i)
+        }
+    }
+    console.log(firstRowHasZero)
+
+    for(let i=0;i<matrix[0].length;i++){ //列数
+        if(matrix[0][i]==0){
+            firstColHasZero.push(i)
+        }
+    }
+
+    console.log(firstColHasZero)
+
+    for(let row = 1; row <matrix.length ;row++){
+        for(let col = 1; col<matrix[0].length ;col++){
+            if(matrix[row][col]==0){
+                matrix[0][col] = 0
+                matrix[row][0] = 0
+            }
+        }
+    }
+
+
+    for(let row = 1; row <matrix.length ;row++){
+        for(let col = 1; col<matrix[0].length ;col++){
+            if(matrix[row][0]==0 || matrix[0][col]==0){
+                matrix[row][col] = 0
+            }
+        }
+    }
+
+
+    //如果有行有为0 的数  那么 把该 行 列 变成0 
+    if(firstRowHasZero.length>0 ){
+        for(let i=0;i<firstRowHasZero.length;i++){
+            //取出 行  为0 的位置 
+            for(let row = 0; row <matrix.length ;row++){    
+                matrix[row][0] = 0
+            }
+            for(let col = 0; col<matrix[0].length ;col++){
+                matrix[firstRowHasZero[i]][col] = 0
+            }
+        }
+    }
+   console.log(matrix)
+
+   if(firstColHasZero.length>0){
+    for(let i=0;i<firstColHasZero.length;i++){  
+            for(let row = 0; row <matrix.length ;row++){
+                matrix[row][firstColHasZero[i]] = 0
+            }
+            for(let col = 0; col<matrix[0].length ;col++){
+                matrix[0][col] = 0
+            }
+        }
+    }
+    return matrix
+}
+
+let matrix = [[1,0]]
+
+console.log(setZeroes(matrix))
+```
+
+### 121.买卖股票的最佳时机
+
+```
+输入：[7,1,5,3,6,4]
+输出：5
+解释：在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
+     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
+```
+
+minPrice的作用：必然是用当前的值减去前面最低的值用于更新，所以取一个变量存储前面的最小值。
+
+Math.max(result,prices[i]-minPrice)如果出现 [3,7,1,2]这种情况，就需要比较两个上升的段哪一段利润最大。
+
+```
+var maxProfit = function(prices) {
+    let minPrice = prices[0]
+    let result = 0
+    for(let i = 0; i<prices.length; i++){
+        minPrice = Math.min(minPrice,prices[i])
+        result = Math.max(result,prices[i]-minPrice)
+    }
+    return result
+};
+
+let prices = [1,2]
+console.log(maxProfit(prices))
+```
+
+### 122. 买卖股票的最佳时机 II
+
+给定一个数组 prices ，其中 prices[i] 是一支给定股票第 i 天的价格。设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+输入: prices = [7,1,5,3,6,4]
+输出: 7
+解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
+     随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。
+
+及其简单的算法：
+
+求！！求所有增长趋势的利润！！！
+
+```
+var maxProfit = function(prices) {
+    let profit = 0
+    for(let i = 0; i<prices.length; i++){
+      if(prices[i]<prices[i+1]){
+          profit += prices[i+1]-prices[i]
+      }
+    }
+    return profit
+};
+
+let prices =  [7,1,5,3,6,4]
+console.log(maxProfit(prices))
+```
 
