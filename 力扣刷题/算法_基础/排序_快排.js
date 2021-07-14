@@ -1,6 +1,6 @@
 // function quickSort1(nums) {
 //     if(nums.length<=1) return nums
-    
+//
 //     let left = []
 //     let right = []
 //     let pivot = nums[0]
