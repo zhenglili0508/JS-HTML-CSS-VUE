@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css实现瀑布流</title>
+    <style>
+       body{
+           margin: 0;
+           padding: 0;
+           background: #333;
+       }
+       .container{
+        width:1200px;
+        margin: 20px auto;
+        columns: 4;
+        column-gap: 40px;
+       }
+
+       .container .box{
+        width: 100%;
+        margin: 0 0 20px;
+        padding: 10px;
+        background: #fff;
+        overflow: hidden;
+        break-inside: avoid;
+       }
+
+       .container .box img{
+           max-width: 100%;
+       }
+       
+       .container .box h2{
+           margin: 10px 0 0;
+           padding: 0;
+           font-size: 20px;
+       }
+       .container .box p{
+           margin:  0;
+           padding: 0 0 10px;
+           font-size:16px;
+       }
+       @media(max-width:1200px){
+           .container{
+               columns: 3;
+               width: calc(100% - 40px);
+               box-sizing: border-box;
+               padding: 20px 20px 20px 0;
+           }
+       }
+       @media(max-width:800px){
+           .container{
+               columns: 2;
+           }
+       }
+       @media(max-width:400px){
+           .container{
+               columns: 1;
+           }
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <img src="./img/1.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                objects: 100% (6/6), done.Writing objects: 100% (7/7), 2.31 KiB | 1.16 MiB/s, done.
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/2.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                objects: 1k-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+        <div class="box">
+            <img src="./img/3.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                objects: 100% (6/6), done.Writing objects: 100% (7/7), 2.31 KiB | 1.16 MiB/s, done.
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/4.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                ob(7/7), 2.31 KiB | 1.16 MiB/s, done.
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/5.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                objects: 100% (6/6), done.Writing objects: 100% (7/7), 2.31 KiB | 1.16 MiB/s, done.
+                Total 7 (delta 3), rmote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/6.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                objects: 100% (6/6), done.Writing objects: 100% (7/7), 2.31 KiB | 1.16 MiB/s, done.
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+        <div class="box">
+            <img src="./img/7.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                objects: 100% (6/6), don
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/8.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                objects: 100% (6/6), done.Writing objects: 100% (7/7), 2.31 KiB | 1.16 MiB/s, done.
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+        <div class="box">
+            <img src="./img/9.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+               
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/10.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/11.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11)
+            
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/12.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                obe: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+        <div class="box">
+            <img src="./img/13.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                objects: 100% (6/6), done.Writing objects: 100% (7/7), 2.31 KiB | 1.16 MiB/s, done.
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/14.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                ob(7/7), 2.31 KiB | 1.16 MiB/s, done.
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/15.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/16.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                objects: 100% (6/6), done.Writing objects: 100% (7/7), 2.31 KiB | 1.16 MiB/s, done.
+                mote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+        <div class="box">
+            <img src="./img/17.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                objects: 100% (6/6), don
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/18.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                objects: 100% (6/6), done.Writing objects: 100% (7/7), 2.31 KiB | 1.16 MiB/s, done.
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+        <div class="box">
+            <img src="./img/19.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+               
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="./img/20.jpg">
+            <h2>Title Goes Here</h2>
+            <p>
+                Enumerating objects: 11, done. Counting objects: 100% (11/11), done.Delta compression using up to 12 threadsCompressing 
+                Total 7 (delta 3), reused 0 (delta 0), pack-reused 0remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用js实现瀑布流</title>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+           background: #333;
+       }
+       img{
+           width: 300px;
+       }
+       #main{
+          position: relative;
+       }
+      .box{
+            float: left;
+            padding: 15px 0 0 15px;
+       }
+       .pic {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <div id="main">
+        <div class="box">
+            <div class="pic">
+                <img src="./img/1.jpg">
+            </div>
+        </div>
+
+        <div class="box"><div class="pic"><img src="./img/2.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/3.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/4.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/5.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/6.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/7.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/8.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/9.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/10.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/11.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/12.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/13.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/14.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/15.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/16.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/17.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/18.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/19.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/20.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/21.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/22.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/23.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/24.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/25.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/10.jpg"></div></div>
+
+
+        
+        <div class="box"><div class="pic"><img src="./img/2.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/3.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/4.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/5.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/6.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/7.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/8.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/9.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/10.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/11.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/12.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/13.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/14.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/15.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/16.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/17.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/18.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/19.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/20.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/6.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/7.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/8.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/9.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/10.jpg"></div></div>
+        <div class="box"><div class="pic"><img src="./img/5.jpg"></div></div>
+
+    </div>
+
+    <!-- <script>
+        window.onload = function () {
+        //1、根据图片的列数来确定父盒子的宽度，父盒子居中     //1.1 获取标签，父盒子和所有子盒子
+            var father= document.getElementById('main');
+            var allBox = document.getElementsByClassName('box'); 
+            //1.2 获取其中一个的宽度
+            var boxWidth = allBox[0].offsetWidth;
+            //1.3 获取文档的宽度(兼容)
+            var screen = document.documentElement.clientWidth || document.body.clientWidth;
+            //1.4 求出当前图片的列数，是变化的
+            var cols = parseInt(screen / boxWidth);
+            //1.5 父盒子居中，给父盒子设置宽度
+            father.style.width = cols * boxWidth + 'px';
+            father.style.margin = '0 auto';
+
+        //2、子盒子定位（从第二行开始）
+        //2.1 定义变量
+        var heightArr = [], boxHeight = 0, minBoxHeight = 0, minIndex = 0;
+        //2.2 遍历所有的盒子
+        for(let i = 0;i < allBox.length; i++) {
+            boxHeight = allBox[i].offsetHeight;
+            //2.3 判断是否是第一行
+            if(i < cols) {
+            heightArr.push(boxHeight)
+            console.log(heightArr)
+
+            }else { //剩余行做定位
+            //2.4 取出数组中最矮盒子的高度
+
+            minBoxHeight = heightArr[minBox(heightArr)];
+            //2.5 取出最矮盒子再数组中的索引
+            minIndex = minBox(heightArr);
+            //2.6 剩余子盒子的定位
+            allBox[i].style.position = 'absolute';
+            allBox[i].style.left = minIndex * boxWidth + 'px'; //比如是第一排最后一个，且为4，那就是3*
+            allBox[i].style.top = minBoxHeight + 'px';
+            //2.7 更新高度
+            heightArr[minIndex] += boxHeight;
+            }
+
+
+          
+        }
+           
+        function minBox(box) {
+                var j = 0;
+                    for(i in box) {
+                        if(box[j] > box[i])
+                        j = i
+                    }
+                return j;
+                }
+        }
+
+    </script> -->
+    <script>
+  
+        window.onload = function () {
+        var father = document.getElementById("main")
+        var allBox = document.getElementsByClassName("box")
+        
+        var boxWidth = allBox[0].offsetWidth
+        var screen = document.body.clientWidth || document.documentElement.clientWidth
+        console.log(screen+'zzz')
+       
+        var cols = parseInt(screen/boxWidth)
+
+        father.style.width = cols*boxWidth +'px'
+        father.style.margin = '0 auto'
+
+        // console.log(father.style.width)
+
+        var heightArr = [] ,boxHeight = 0, minBoxHeight = 0, minIndex = 0
+
+        for(let i=0;i<allBox.length ; i++){
+            boxHeight = allBox[i].offsetHeight
+            if(i < cols){
+                heightArr.push(boxHeight)
+            }else{
+                minIndex = minbox(heightArr)
+                minBoxHeight = heightArr[minIndex]
+                allBox[i].style.position = 'absolute'
+                allBox[i].style.left = minIndex * boxWidth +'px'
+                allBox[i].style.top = minBoxHeight + 'px'
+
+                heightArr[minIndex] += boxHeight
+            }
+
+        }
+         function minbox(box){
+            var j = 0
+            for(let i=0;i<box.length;i++){
+                if(box[i]<box[j]){
+                    j=i
+                }
+            }
+            return j
+         }  
+
+        }
+
+
+
+window.addEventListener("resize", debounce(callbackFN, 200))
+
+
+function callbackFN() {
+    return window.onload()
+}
+
+function debounce(callbackFN,delay){
+    let timer = null
+    return function(){
+        if(timer){
+            clearTimeout(timer)
+        }
+        timer = setTimeout(callbackFN, delay);
+    }
+}
+
+
+    </script>
+</body>
+</html>
