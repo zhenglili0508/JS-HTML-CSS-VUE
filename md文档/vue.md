@@ -390,3 +390,81 @@ console.log(printAnimalDetails())
 
 里面的this  是 window  而不是vm
 
+
+
+# axios +promise
+
+基本结构
+
+```
+function axios({url,method='',param = {},data={}}){
+    
+    //返回一个promise 对象！
+    return new Promise((resolve,reject)=>{ //执行器函数
+        //1.发送Ajax请求    
+
+        // 2.1请求成功了就调用resolve()
+
+        // 2.2失败了调用 reject()
+    })
+}
+
+axios({
+    url :'/xxx'
+})
+```
+
+所有步骤！
+
+```
+function axios({url,method='',param = {},data={}}){
+    
+    //返回一个promise 对象！
+    return new Promise((resolve,reject)=>{ //执行器函数
+        //1.发送Ajax请求
+            //1.1创建xhr对象
+            const request = new XMLHttpRequest()
+            //1.2打开连接 初始化请求
+            request.open(method,url,true)
+            //1.3发送Ajax请求
+            if(method === 'GET'){
+                request.send()
+            }else if(method === 'POST'){
+                request.send(JSON.stringify(data))
+            }
+        // 绑定状态改变的监听
+        request.onreadystatechange = function(){
+            if(request.readyState!==4){
+                return
+            }
+            const {status,statusText} = request
+        }
+        // 2.1请求成功了就调用resolve()
+        if(status>=200 && status<=299){
+            const response = {
+                data:JSON.parse(request.response),
+                status,
+                statusText
+            }
+            resolve(response)
+        }else{ // 2.2失败了调用 reject()
+            reject(new Error('request error status is '+ status))
+        }
+    })
+}
+
+
+axios({
+    url :'/xxx'
+}).then( //两个回调函数
+    response =>{
+        console.log(response)
+    },
+    error =>{
+        alert(error.message)
+    }
+)
+```
+
+
+
