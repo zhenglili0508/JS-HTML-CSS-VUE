@@ -5,7 +5,7 @@
 //     right:{
 //         val:20,
 //         left:15,
-//         right:7,
+//         right:7,    
 //     }
 // }
 // // console.log(tree)
