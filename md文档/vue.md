@@ -322,6 +322,139 @@ console.log(printAnimalDetails())
   ●获取图片盒子的宽度
   ●显示的列数=页面宽度/图片盒子宽度. column = pageWidth / itemWidth
 
+  ```
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>用js实现瀑布流</title>
+      <style>
+         *{
+             margin: 0;
+             padding: 0;
+             background: #333;
+         }
+         img{
+             width: 300px;
+         }
+         #main{
+            position: relative;
+         }
+        .box{
+              float: left;
+              padding: 15px 0 0 15px;
+         }
+         .pic {
+              padding: 10px;
+              border: 1px solid #ccc;
+          }
+         
+      </style>
+  </head>
+  <body>
+  
+      <div id="main">
+          <div class="box">
+              <div class="pic">
+                  <img src="./img/1.jpg">
+              </div>
+          </div>
+  
+          <div class="box"><div class="pic"><img src="./img/2.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/3.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/4.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/5.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/6.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/7.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/8.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/9.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/10.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/11.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/12.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/13.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/14.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/15.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/16.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/17.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/18.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/19.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/20.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/21.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/22.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/23.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/24.jpg"></div></div>
+          <div class="box"><div class="pic"><img src="./img/25.jpg"></div></div>    
+  
+      </div>
+      
+      <script>
+    
+          window.onload = function () {
+          var father = document.getElementById("main")
+          var allBox = document.getElementsByClassName("box")
+          
+          var boxWidth = allBox[0].offsetWidth
+          var screen = document.body.clientWidth || document.documentElement.clientWidth
+          console.log(screen+'zzz')
+         
+          var cols = parseInt(screen/boxWidth)
+  
+          father.style.width = cols*boxWidth +'px'
+          father.style.margin = '0 auto'
+  
+          // console.log(father.style.width)
+  
+          var heightArr = [] ,boxHeight = 0, minBoxHeight = 0, minIndex = 0
+  
+          for(let i=0;i<allBox.length ; i++){
+              boxHeight = allBox[i].offsetHeight
+              if(i < cols){
+                  heightArr.push(boxHeight)
+              }else{
+                  minIndex = minbox(heightArr)
+                  minBoxHeight = heightArr[minIndex]
+                  allBox[i].style.position = 'absolute'
+                  allBox[i].style.left = minIndex * boxWidth +'px'
+                  allBox[i].style.top = minBoxHeight + 'px'
+  
+                  heightArr[minIndex] += boxHeight
+              }
+  
+          }
+           function minbox(box){
+              var j = 0
+              for(let i=0;i<box.length;i++){
+                  if(box[i]<box[j]){
+                      j=i
+                  }
+              }
+              return j
+           }  
+  
+          }
+      //节流 监测 窗口大小
+      window.addEventListener("resize", debounce(callbackFN, 200))
+  
+      function callbackFN() {
+          return window.onload()
+      }
+      function debounce(callbackFN,delay){
+          let timer = null
+          return function(){
+              if(timer){
+                  clearTimeout(timer)
+              }
+              timer = setTimeout(callbackFN, delay);
+          }
+      }
+  
+      </script>
+  </body>
+  </html>
+  ```
+  
   
 
 # 自定义指令
