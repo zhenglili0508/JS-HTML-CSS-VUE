@@ -20,7 +20,7 @@ let arr = '1 2 3 4 1 2'
 let arre = arr.split(' ')
 // console.log(arre)
 
-//set 的迭代与顺序
+
 let set = new Set(['value1','value2','value3'])
 let map = new Map([['key1','mapVal1'],['key2','mapVal2'],['key3','mapVal3']])
 // map 与set 的循环遍历 
