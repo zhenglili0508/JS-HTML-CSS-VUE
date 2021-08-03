@@ -1,11 +1,17 @@
 function deletStr(){
     const set = new Set()
+    const arr = new Array()
     for(let i=0;i<s.length;i++){
         if(s[i]!=='b'){
-            set.add(s[i])
+            if(!set.has(s[i])){
+                arr.push(s[i])
+                if(s[i]==='a'||s[i]==='c'){
+                    set.add(s[i])
+                }
+            }
         }
     }
-    return [...set].join('')
+    return arr.join('')
 }
 
 let s = 'aabbdcce'

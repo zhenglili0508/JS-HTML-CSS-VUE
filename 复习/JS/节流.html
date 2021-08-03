@@ -9,14 +9,14 @@
 <body>
     <button id="button"> 点击触发事件</button>
     <script>
-        function JieLiu(func) {
+        function JieLiu(fun) {
             let timer
             return function zzzll(){
                 // console.log("00000")
                 if(!timer){
                     // console.log("111")
                     timer = setTimeout(() => {
-                        func()
+                        fun()
                     }, 500); 
                 }
             }
@@ -25,6 +25,7 @@
         function func(){
             console.log("节流点击成功")
         }
+
         document.getElementById('button').onclick = JieLiu(func)
 
 

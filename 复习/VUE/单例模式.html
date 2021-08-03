@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单列模式</title>
+</head>
+<body>
+    <button id="loginBtn"> 登录</button>
+
+<script  type="text/javascript" src="../../Vue框架/js/vue.js">
+// js 单例模式的实现  实现登录
+var createLogin = function(){
+    var div = document.createElement("div")
+    div.innerHTML = '我是登录的弹窗'
+    div.style.display = 'none'
+    document.body.appendChild(div)
+    return div
+}
+var getSingle = function(fn){
+    var result;
+    return function(){
+        return result || (result = fn.apply())
+    }
+}
+
+var create = getSingle(createLogin)
+document.getElementById("loginBtn").onclick = function(){
+    var loginLay = create()
+    loginLay.style.display = 'block'
+}
+</script>
+</body>
+</html>
