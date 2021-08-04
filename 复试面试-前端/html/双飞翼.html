@@ -19,41 +19,40 @@
             clear: both;
             padding: 0 200px;
         }
-        #container{
-            padding: 0 200px;
-        }
         .column{
             height: 200px;
             float: left;
-            /* 下面的代码时让三块内容都相对定位   然后左右的在此基础上左移右移*/
             position: relative;
         }
         #left{
             width: 200px;
-            background-color: aqua;
+            background-color: rgb(161, 241, 241);
             margin-left: -100%;
-            left: -200px;
         }
         #right{
             width: 200px;
             background-color: wheat;
             margin-left: -200px;
-            left:200px
+        }
+        #inner_center{
+            background-color: tomato; 
+            /* 多加一个元素  用margin实现 */
+            margin: 0 200px 0 200px;   
         }
         #center{
             width: 100%;
-            background-color: tomato;
         }
-        
+      
 
     </style>
 </head>
 <body>
     <div id="header">header</div>
     <div id="container">
-        <div id="center" class="column">center--
-            ----------------------------------------------------------------</div>
-        <div id="left" class="column">left</div>
+        <div id="center"> <div id="inner_center"  class="column">center--
+            ----------------------------------------------------------------结束</div>
+        </div>
+        <div id="left"  class="column">left</div>
         <div id="right" class="column">right</div>
     </div>
     <div id="footer">footer</div>
