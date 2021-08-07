@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeakMap的弱映射</title>
+</head>
+<body>
+    <script>
+        // const weakMap = new WeakMap();
+        // let obj = { 1: 1 };
+        // weakMap.set({},  "旋即被回收的空对象").set(obj, "映射值");
+        // console.log("weakMap====>", weakMap);
+
+        const weakMap = new Map();
+        let obj = { 1: 1 };
+        weakMap.set({},  "旋即被回收的空对象").set(obj, "映射值");
+        console.log("weakMap====>", weakMap);
+
+
+        const Name = (function () {
+            const nameMap = new WeakMap();
+            class Name {
+            constructor(name) {
+            nameMap.set(this, name);
+            }
+            getName() {
+                return nameMap.get(this);
+            }
+            setName(name) {
+                nameMap.set(this, name);
+            }
+        }
+        return Name;
+        })();
+
+        const name = new Name("wybie");
+        const name1 = new Name("shang");
+        name1.setName("himea");
+        console.log("名字是==>", name.getName());
+        console.log("名字1是==>", name1.getName());
+    </script>
+</body>
+</html>
